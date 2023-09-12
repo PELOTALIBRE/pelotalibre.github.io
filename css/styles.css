@@ -1,0 +1,20 @@
+.card-body> a> img {
+object-fit: contain;
+}
+
+#buscar::placeholder {
+    color: #fff; 
+}
+
+#buscar {
+    width: 100%; 
+    padding: 10px; 
+   font-size: 16px;
+text-align: center; 
+ line-height: normal;
+font-weight: bolder;
+background: #57b230;
+    border: none;
+    border-radius: 5px;
+margin-bottom:10px
+}

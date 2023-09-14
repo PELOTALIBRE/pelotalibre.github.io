@@ -63,7 +63,7 @@ Pelota Libre TV
 <br>
 <p class="display-5 text-center">Ver Canales de futbol online en vivo y en directo</p>
 <br/>
-<br /><div style="padding:10px;"><input type="text" id="buscar" placeholder="Buscar Canal..." /></div><div class="card-deck mb-3 text-center">
+<br /><div class="card-deck mb-3 text-center">
 <div class="card mb-4 box-shadow">
     <div class="card-header">
         <h2 class="my-3 font-weight-normal">TyC Sports</h2>
@@ -464,20 +464,7 @@ Pelota Libre TV
 </footer>
 
 	
- <script type="text/javascript">
-$(document).ready(function() {
-    $('#buscar').on('input', function() {
-        var value = $(this).val().toLowerCase();
-        $('.card-deck > .card').each(function() {
-            var cardTitle = $(this).find('.card-header h2').text().toLowerCase();
-            var cardVisible = cardTitle.indexOf(value) > -1;
 
-           
-            $(this).toggleClass('d-none', !cardVisible);
-        });
-    });
-});
-</script>
 
 </body>
 </html>

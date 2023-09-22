@@ -1,0 +1,220 @@
+
+
+
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="apple-touch-icon" sizes="57x57" href="/fav/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/fav/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/fav/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/fav/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/fav/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/fav/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/fav/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/fav/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/fav/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png">
+<link rel="manifest" href="/fav/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/fav/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Ver VIX Plus Eventos online en VIVO y en DIrecto Gratis - Star Plus Pelota Libre TV</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+
+<meta name='referrer' content='no-referrer' />
+<script type="text/javascript" src="/en-vivo/star-plus/horario.js?v"></script>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=6505231f14de310019c9e8a1&product=sop' async='async'></script>
+<link href="/css/bootstrap.css?v3" rel="stylesheet">
+
+<link href="/css/portada.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<meta http-Equiv="Cache-Control" Content="no-cache" />
+<meta http-Equiv="Pragma" Content="no-cache" />
+<meta http-Equiv="Expires" Content="0" />
+<link href="/css/starp.css" rel="stylesheet">
+	<style type:"text/css" >
+  .live-indicator-block  {
+	 font-family: 'Roboto', sans-serif;
+	 background: #d60404;
+	 color: #fff;
+	
+	
+	 border-radius: 3px;
+	 text-transform: uppercase;
+	 display: inline-block;
+	font-weight:700 !important;
+	 font-size: 12px;
+	 font-weight: bold;
+	 width: 100%;
+}
+ .live-indicator-block  .blink {
+	 animation: blinker 1s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+	 font-size: 10px;
+	 margin-right: 5px;
+	 vertical-align: baseline;
+}
+ @keyframes blinker {
+	 from {
+		 opacity: 1;
+	}
+	 to {
+		 opacity: 0;
+	}
+}
+
+.btn-dark.en-vivo {
+  background-color: #d60404;
+  color: white;
+}
+
+.btn-dark.en-vivo .fa-circle {
+ animation: blinker 1s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+	}
+	
+
+
+.btn-live {
+  background-color: #d60404;
+  color: #fff;
+font-weight:700;
+}
+
+.btn-dark.en-vivo .fa-circle {
+  animation: blinker 1s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+	font-size:12px;
+}
+
+.btn-dark {
+  background-color: #212121;
+  color: white;
+		}
+.w3-hover-opacity {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+ 
+}		      a { 
+      text-decoration:none !important;
+      }
+
+ </style>
+</head>
+<body>
+<div id="navbar"></div>
+<script>
+            $(document).ready(function() {
+                $("#navbar").load("/html/header.html");
+            });
+         </script>
+<div class="w3-main w3-content w3-padding" style="max-width:1200px">
+    <center>
+<img src="/img/vix.png" alt="VIX+" width="250" height="100%"> 
+</center><br><p class="display-5 text-center">Elige el evento:</p>
+	
+<div id="eventos"></div>
+
+<br>
+
+<div class="sharethis-inline-share-buttons"></div>
+
+<script type="text/javascript">
+
+function eventos() {
+  var x = Math.random().toString(36).substring(7);
+
+  $.ajax({
+    url: "https://librefutboltv.com/vix-plus/eventos.json?" + x, 
+    type: "get",
+    success: function (arr) {
+      var content = '';
+
+      for (var i = 0; i < arr.length; i++) {
+        if (i % 4 == 0) {
+          if (i != 0)
+            content += '</div>';
+
+          content += '<div class="w3-row-padding w3-padding-16 w3-center" id="copa">';
+        }
+
+        var obj = arr[i];
+        var status, colorClass, additionalClass, finalEncodedUrl;
+
+        if (obj['status'] == "FINALIZADO" || obj['status'] == "EN VIVO")
+          status = obj['status'];
+        else
+          status = 'HOY | <span class="t">' + obj['status'] + '</span> hs';
+
+        if (status == "EN VIVO") {
+          colorClass = "btn-custom-red"; 
+          additionalClass = "live-indicator-block"; 
+          status = '<i class="fa fa-circle blink" aria-hidden="true"></i> ' + status; 
+        } else {
+          colorClass = "btn-dark"; 
+          additionalClass = ""; 
+        }
+
+
+var urlValue = obj['url'];
+var finalEncodedUrl;
+
+if (urlValue && urlValue !== "#") {
+  var trimmedUrl = urlValue.replace(/\/embed\/eventos\/\?r=/, '');
+  var finalEncodedUrl = "/embed/eventos/?r=" + trimmedUrl;
+} else {
+  finalEncodedUrl = "#"; 
+}
+
+
+
+    
+        content += '<div class="w3-quarter">';
+        content += '<a href="' + finalEncodedUrl + '"><img src=" ' + obj['img'] + ' " alt="VIX+" style="width:100%" class="w3-hover-opacity"></a>';
+        content += '<a class="btn btn-block ' + colorClass + ' ' + additionalClass + '" href="' + finalEncodedUrl + '">' + status + '</a>';
+        content += '<div class="w3-card-4">';
+        content += '<p><b>' + obj['league'] + '</b></p>';
+        content += '<p>' + obj['title'] + '</p>';
+        content += '</div>';
+        content += '</div>';
+
+        if (i == arr.length - 1)
+          content += '</div>';
+      }
+
+      $("#eventos").html(content);
+
+      guardaHorario();
+      dT();
+    },
+  });
+}
+
+eventos();
+
+window.setInterval(function () {
+  eventos();
+}, 60000);
+  </script>
+
+<div id="footer"></div>
+<script>
+            $(document).ready(function() {
+                $("#footer").load("/html/footer.html");
+            });
+         </script>
+</div>
+
+</body>
+</html>

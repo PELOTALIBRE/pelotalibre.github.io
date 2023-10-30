@@ -234,6 +234,11 @@
  if (getURL === "aHR0cHM6Ly9yb3V0ZXIuY2RuLnJjcy5uZXQuYXIvbW5wL3VuaXZlcnNhbC9vdXRwdXQubXBk") {
             videoURL = mpdBase + "universal/output.mpd";
         }
+
+ if (getURL === "bXR2") {
+            videoURL = mpdBase + "mtv/output.mpd";
+        } 
+	    
        var playerInstance = jwplayer("player");
 		playerInstance.setup({
 			file: videoURL,

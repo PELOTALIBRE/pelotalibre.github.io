@@ -242,7 +242,12 @@
  if (getURL === "aHR2") {
             videoURL = mpdBase + "htv/output.mpd";
         } 
-	
+
+ if (getURL === "Y20=") {
+            videoURL = mpdBase + "cm/output.mpd";
+        } 
+	    
+  
        var playerInstance = jwplayer("player");
 		playerInstance.setup({
 			file: videoURL,

@@ -1,0 +1,49 @@
+
+<html>
+<head>
+<title>Antena 3</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta http-equiv="Content-Language" content="es" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<body style="padding: 0px; margin:0px;"><body>
+<script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+<div id="player"></div>
+<script>
+
+    var player = new Clappr.Player({
+        source: 'https://tvup-live.secure.footprint.net/antena3hd/antena3hd.mpd',
+        mimeType: 'application/dash+xml',
+        title : "EN VIVO",
+        description: "",
+        height: '100%',
+        width: '100%',
+        plugins: [DashShakaPlayback, LevelSelector, ChromecastPlugin],
+        chromecast: {
+        contentType: 'video/mp4',
+        },
+        shakaConfiguration: {
+            drm: {
+                clearKeys: {
+                    '640a1875f10d58c188045cbabc8ebf0b': '400eff1e1dee5da1e5f67dc7bd46f1d8',
+                    'ec51a6d024c957f3ab0b977289d01ad6': '32e98b51de453fde7062fe9897f86016',
+                    'c967281621d450f5bd4af5fc2e5d368f': 'a33084064a1e074c476d06a7031d3fd4'
+                }
+            },
+            preferredAudioLanguage: 'pt-BR',
+        },
+        shakaOnBeforeLoad: function (shaka_player) {},
+        parentId: '#player'
+    });
+</script>
+
+
+
+
+
+
+</body>
+</head>
+</html>

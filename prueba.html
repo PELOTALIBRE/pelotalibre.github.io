@@ -9,7 +9,17 @@ body {
 <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
 <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 </script>
+<script type="text/javascript">
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
+var get = getParameterByName('get');
+
+</script>
 <div id="player"></div>
 <script type="text/javascript">
 

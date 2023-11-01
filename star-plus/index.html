@@ -135,7 +135,7 @@ function eventos() {
       var x = Math.random().toString(36).substring(7);
 
       $.ajax({
-        url: "https://librefutboltv.com/star-plus/eventos.json?" + x,
+        url: "https://corsproxy.io/?url=https://futbollibre.futbol/star-plus/eventos.json?" + x ,
         type: "get",
         success: function (arr) {
           var content = '';
@@ -165,23 +165,32 @@ function eventos() {
               additionalClass = ""; 
             }
 
-            var urlValue = obj['url'];
+ var urlValue = obj['url'];
 
-         
-            if (urlValue && urlValue !== "#") {
-              var encodedUrl = urlValue.replace(/\/embed\/eventos\/\?r=/, '');
-              decodedUrl = atob(encodedUrl);
+if (urlValue && urlValue !== "#") {
+  var encodedUrl = urlValue.replace(/\/embed\/eventos\/\?r=/, '');
+  var decodedUrl = atob(encodedUrl);
 
-              var decodedUrlParts = decodedUrl.split("https://techflower.bio/star_jwp.html?get=");
-              var secondPart = decodedUrlParts[1];
+  if (decodedUrl.includes("https://techflower.bio/star_jwp3.html")) {
+   
+    var match = decodedUrl.match(/https:\/\/techflower\.bio\/star_jwp3\.html\?get=(.+)/);
+    var secondPart = match ? match[1] : "";
+    var modifiedUrl = "https://techflower.bio/star_jwp3.html?get=" + secondPart;
+  } else {
+    
+    var match = decodedUrl.match(/\/star_jwp\.html\?get=(.+)/);
+    var secondPart = match ? match[1] : "";
+    var modifiedUrl = "https://pelotalibre.lat/star_jwp.html?get=" + secondPart;
+  }
 
-              var modifiedUrl = "https://apple-pp.blogspot.com/?get=" + secondPart;
-              var encodedModifiedUrl = btoa(modifiedUrl);
+  var encodedModifiedUrl = btoa(modifiedUrl);
+  var finalEncodedUrl = "/p/eventos.html?r=" + encodedModifiedUrl;
+} else {
+  finalEncodedUrl = "#"; 
+}
 
-              var finalEncodedUrl = "/embed/eventos/?r=" + encodedModifiedUrl;
-            } else {
-              finalEncodedUrl = "#"; 
-            }
+
+
 
         
             content += '<div class="w3-quarter">';

@@ -262,18 +262,25 @@
         } 
 	    
   
-       var playerInstance = jwplayer("player");
-		playerInstance.setup({
-			file: videoURL,
-                       "type": "dash",
+    var playerInstance = jwplayer("player");
+playerInstance.setup({
+    file: videoURL,
+    type: "dash",
+    width: "100%",
+    height: "100%",
+    aspectratio: "16:9",
+    autostart: false,
+    cast: {},
+    events: {
+        onReady: function() {
+           
+            document.getElementById("player").addEventListener("click", function() {
+                playerInstance.seek(playerInstance.getPosition() - 10);
+            });
+        }
+    }
+});
 	
-			
-			width: "100%",
-			height: "100%",
-			aspectratio: "16:9",
-			autostart: false,
-			cast:{}
-		});	
     </script>
 </body>
 </html>

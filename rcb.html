@@ -10,7 +10,8 @@
     jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
 </script>
 </head>
-<body>
+<body><button id="retrocederButton">Retroceder 1 minuto</button>
+
     <div id='player'></div>
     <script type='text/javascript'>
         function getParameterByName(name) {
@@ -273,15 +274,14 @@ playerInstance.setup({
 });
 
 
-playerInstance.addButton(
-    "https://cdn-icons-png.flaticon.com/128/31/31316.png", 
-    "Retroceder 1 minuto",
-    function () {
-        var currentTime = playerInstance.getPosition();
-        playerInstance.seek(currentTime - 60); 
-    },
-    "rewindButton"
-);
+
+var retrocederButton = document.getElementById("retrocederButton");
+
+retrocederButton.addEventListener("click", function () {
+    var currentTime = playerInstance.getPosition();
+    playerInstance.seek(currentTime - 60); 
+});
+
 
 
 	

@@ -261,8 +261,7 @@
             videoURL = mpdBase + "cm/output.mpd";
         } 
 	    
-  
- var playerInstance = jwplayer("player");
+var playerInstance = jwplayer("player");
 playerInstance.setup({
     file: videoURL,
     type: "dash",
@@ -278,11 +277,12 @@ playerInstance.addButton(
     "https://cdn-icons-png.flaticon.com/128/31/31316.png", 
     "Retroceder 1 minuto",
     function () {
-    
-        playerInstance.seek(playerInstance.getPosition() - 60);
+        var currentTime = playerInstance.getPosition();
+        playerInstance.seek(currentTime - 60); 
     },
-    "rewindButton" 
+    "rewindButton"
 );
+
 
 	
     </script>

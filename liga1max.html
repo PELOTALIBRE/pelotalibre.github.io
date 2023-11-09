@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #player {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+<div id="player"></div>
+<script>
+        var player = new Clappr.Player({
+        source: "https://e3.tiofutbol.com:442/live1/index.m3u8?token=8bdf182481579dc312e87b754dd62e7dee293a34-3a86d1cdb37d2d0b4252748bddebef16-1699535947-1699525147&remote=181.209.75.156",
+        parentId: "#player",
+        poster: 'http://clappr.io/poster.png',
+        width: '100%',
+        height: '100%',
+        autoPlay: true
+    });
+</script>
+</body>
+</html>

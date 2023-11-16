@@ -17,53 +17,57 @@ body {
 <div id="player"></div>
 
 <script>
-$(document).ready(function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const eventId = urlParams.get('id');
-    const eventImg = urlParams.get('img');
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', "https://api.codetabs.com/v1/proxy/?quest=https://tl.realintic.online/json/tvp.json");
-    xhr.onload = function() {
-        if (xhr.status === 200) {
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://corsproxy.io/?url=https://tl.realintic.online/json/tvp.json');
+xhr.onload = function() {
+    if (xhr.status === 200) {
+        try {
             var data = JSON.parse(xhr.responseText);
+            if (!data || !data.url) {
+                throw new Error('JSON no válido o no contiene una URL de canal válida.');
+            }
             var playerInstance = jwplayer("player");
             playerInstance.setup({
                 playlist: [{
                     "title": "",
                     "description": "",
-                    "image": "",
                     "sources": [{
                         "default": false,
                         "type": "dash",
                         "file": data.url,
-                        "label": "0",
-                        "drm": {
+                         "drm": {
                             "clearkey": {
                                 "keyId": "c4e02e82e01da41b7e07a98e31e48d48",
                                 "key": "34f02ebe251891bd4595685fd89d5635"
-                            }
-                        }
+                            },
+                        "label": "0"
                     }]
                 }],
                 width: "100%",
                 height: "100%",
                 aspectratio: "16:9",
-                autostart: true,
+		autostart: false,    
                 cast: {},
                 sharing: {}
             });
+            playerInstance.on('error', function(event) {
+                if (event.code === 241403 || event.code === 241404 || event.code === 241401) {
+                    location.reload();
+                }
+            });
+            var lang = (getLang === '') ? 1 : parseInt(getLang);
+            jwplayer().on('play', function(_0x18713b) {
+                jwplayer().setCurrentAudioTrack(lang);
+            });
+        } catch (error) {
+            console.error('Error al configurar el reproductor:', error.message);
         }
-    };
-    xhr.send();
-});
-playerInstance.on('error', function(event) {
-    if (event.code === 241403 || event.code === 241404 || event.code === 241401) {
-        // Recargar la página
-        location.reload();
     } else {
-        // Mostrar un mensaje de error personalizado dentro de un elemento específico
-        var errorMessage = document.getElementById('customErrorMessage');
-        errorMessage.innerHTML = 'Ocurrió un error: No se pudo cargar el video.';
+        console.error('Error al cargar el JSON. Código de estado:', xhr.status);
     }
-});
+};
+xhr.onerror = function() {
+    console.error('Error de red al cargar el JSON.');
+};
+xhr.send();
 		</script>

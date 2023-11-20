@@ -16,6 +16,21 @@
             display: none;
         }
     </style>
+    <script type="text/javascript">
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var getURL = getParameterByName('get');
+var getLang = getParameterByName('lang');
+var getIMG = getParameterByName('img');
+var getKEY  = getParameterByName('key');
+var getKEY2  = getParameterByName('key2');
+if (getURL == "") {alert('Vuelve a la pÃƒÆ’Ã‚Â¡gina anterior');}
+</script>
 </head>
 <body>
     <div id="player"></div>
@@ -59,8 +74,10 @@
                         sharing: {}
                     });
 
-                    playerInstance.on("error", function() {
-                        playerInstance.setup({
+                   
+                playerInstance.on('error', function(event) {
+    if (event.code === 241403 || event.code === 241404 || event.code === 241401) {
+                                playerInstance.setup({
                             playlist: [{
                                 "sources": [
                                     {
@@ -85,9 +102,8 @@
                             sharing: {}
                         });
                     });
-                } catch (error) {
-                    console.error('Error al configurar el reproductor:', error.message);
-                }
+                
+    }
             } else {
                 console.error('Error al cargar el JSON. Código de estado:', xhr.status);
             }

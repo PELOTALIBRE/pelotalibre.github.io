@@ -24,12 +24,8 @@ function getParameterByName(name) {
 	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-var getURL = getParameterByName('get');
-var getLang = getParameterByName('lang');
-var getIMG = getParameterByName('img');
 var getKEY  = getParameterByName('key');
 var getKEY2  = getParameterByName('key2');
-if (getURL == "") {alert('Vuelve a la pÃƒÆ’Ã‚Â¡gina anterior');}
 </script>
 </head>
 <body>
@@ -104,7 +100,7 @@ if (getURL == "") {alert('Vuelve a la pÃƒÆ’Ã‚Â¡gina anterior');}
                     });
                 
     }
-            } else {
+             else {
                 console.error('Error al cargar el JSON. Código de estado:', xhr.status);
             }
         };

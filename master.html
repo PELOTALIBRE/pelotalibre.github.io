@@ -74,23 +74,6 @@ xhr.onload = function() {
 			});
 	});
 }
-            var lang = (getLang === '') ? 1 : parseInt(getLang);
-            jwplayer().on('play', function(_0x18713b) {
-                jwplayer().setCurrentAudioTrack(lang);
-            });
-        } catch (error) {
-            console.error('Error al configurar el reproductor:', error.message);
-        }
-    } else {
-        console.error('Error al cargar el JSON. Código de estado:', xhr.status);
-    }
-};
-xhr.onerror = function() {
-    console.error('Error de red al cargar el JSON.');
-};
-xhr.send();
-
-
 
 					
 		</script>

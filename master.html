@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name='referrer' content='no-referrer' />
     <meta name="robots" content="noindex">
-<script cdnd='acacdn.com' data-adel='lwsu' data-cfasync='false' src='//acacdn.com/script/suv4.js' zid='7425742'></script>
-<script data-cfasync="false" type="text/javascript" src="//predictivadnetwork.com/a/display.php?r=7537270"></script>
+    <script cdnd='acacdn.com' data-adel='lwsu' data-cfasync='false' src='//acacdn.com/script/suv4.js' zid='7425742'></script>
+    <script data-cfasync="false" type="text/javascript" src="//predictivadnetwork.com/a/display.php?r=7537270"></script>
     <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
     <style type="text/css">
         body {
@@ -17,16 +17,16 @@
         }
     </style>
     <script type="text/javascript">
-function getParameterByName(name) {
-	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
-	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
-	results = regex.exec(location.search);
-	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+            var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
 
-var getKEY  = getParameterByName('key');
-var getKEY2  = getParameterByName('key2');
-</script>
+        var getKEY = getParameterByName('key');
+        var getKEY2 = getParameterByName('key2');
+    </script>
 </head>
 <body>
     <div id="player"></div>
@@ -36,7 +36,7 @@ var getKEY2  = getParameterByName('key2');
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://corsproxy.io/?url=https://tl.realintic.online/json/tvp.json');
-        xhr.onload = function() {
+        xhr.onload = function () {
             if (xhr.status === 200) {
                 try {
                     var data = JSON.parse(xhr.responseText);
@@ -70,41 +70,41 @@ var getKEY2  = getParameterByName('key2');
                         sharing: {}
                     });
 
-                   
-                playerInstance.on('error', function(event) {
-    if (event.code === 241403 || event.code === 241404 || event.code === 241401) {
-                                playerInstance.setup({
-                            playlist: [{
-                                "sources": [
-                                    {
+                    playerInstance.on('error', function (event) {
+                        if (event.code === 241403 || event.code === 241404 || event.code === 241401) {
+                            var newPlayerInstance = jwplayer("player");
+                            newPlayerInstance.setup({
+                                playlist: [{
+                                    "sources": [{
                                         "default": false,
                                         "type": "dash",
                                         "file": data.url,
                                         "drm": {
-                                            "clearkey": { 
-                                                "keyId": atob("YzRlMDJlODJlMDFkYTQxYjdlMDdhOThlMzFlNDhkNDg="), 
-                                                "key": atob("MzRmMDJlYmUyNTE4OTFiZDQ1OTU2ODVmZDg5ZDU2MzU=") 
+                                            "clearkey": {
+                                                "keyId": atob("YzRlMDJlODJlMDFkYTQxYjdlMDdhOThlMzFlNDhkNDg="),
+                                                "key": atob("MzRmMDJlYmUyNTE4OTFiZDQ1OTU2ODVmZDg5ZDU2MzU=")
                                             }
                                         },
                                         "label": "0"
-                                    }
-                                ]
-                            }],
-                            width: "100%",
-                            height: "100%",
-                            aspectratio: "16:9",
-                            autostart: true,
-                            cast: {},
-                            sharing: {}
-                        });
+                                    }]
+                                }],
+                                width: "100%",
+                                height: "100%",
+                                aspectratio: "16:9",
+                                autostart: true,
+                                cast: {},
+                                sharing: {}
+                            });
+                        }
                     });
-                
-    }
-             else {
+                } catch (error) {
+                    console.error('Error al configurar el reproductor:', error.message);
+                }
+            } else {
                 console.error('Error al cargar el JSON. Código de estado:', xhr.status);
             }
         };
-        xhr.onerror = function() {
+        xhr.onerror = function () {
             console.error('Error de red al cargar el JSON.');
         };
         xhr.send();

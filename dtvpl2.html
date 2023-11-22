@@ -821,11 +821,12 @@ var playerInstance = jwplayer("player");
 
 playerInstance.setup({
 	playlist: [{
-		"sources": [
+		"sources"
+		: [
 			{
 				"default": false,
 				"type": "dash",
-				"file": url,
+				"file": url+'/manifest.mpd',
 				"drm": {
 					"clearkey": { "keyId": keyId, "key": key }
 				},
@@ -835,10 +836,11 @@ playerInstance.setup({
 	}],
 	width: "100%",
 	height: "100%",
-	aspectratio: "16:9",
+	aspectratio: "",
 	autostart: false,
 	cast: {},
-	sharing: {}
+	sharing: false,
+
 });
 
 if (getLang == "") {
@@ -848,7 +850,6 @@ if (getLang == "") {
 jwplayer().on('play', function(e) {
   jwplayer().setCurrentAudioTrack(getLang);
 });
-
 
 
 </script>

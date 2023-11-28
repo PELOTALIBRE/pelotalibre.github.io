@@ -403,12 +403,12 @@
       var current_ul = $(this).next('ul.sub-menu');
       if (!$(this).hasClass('active')) {
         menu_a.removeClass('active');
-        menu_ul.filter(':visible').slideUp('fast');
+        menu_ul.filter(':visible').slideUp('fast').removeClass('active');
         $(this).addClass('active');
-        current_ul.stop(true, true).slideDown('fast');
+        current_ul.stop(true, true).slideDown('fast').addClass('active');
       } else {
         $(this).removeClass('active');
-        current_ul.stop(true, true).slideUp('fast');
+        current_ul.stop(true, true).slideUp('fast').removeClass('active');
       }
     });
   });

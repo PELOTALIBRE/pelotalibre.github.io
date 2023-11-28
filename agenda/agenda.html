@@ -312,7 +312,9 @@
         }
 
 					      
-
+.menu > li > .sub-menu {
+    display: none;
+  }
 
     </style>
 
@@ -374,10 +376,7 @@
   eventos();
 
 
-	  $(".menu > li > .sub-menu").css({
-    "display": "none",
-    "visibility": "hidden"
-  });
+
 </script>
 
 
@@ -385,32 +384,27 @@
 </div>
 <br>
    
+
+
 <script>
-$(document).ready(function() {
+  $(document).ready(function() {
+    $(document).on("click", ".menu > li > a", function(e) {
+      e.preventDefault();
 
+      var submenu = $(this).next(".sub-menu");
 
+      $(".menu > li > .sub-menu").not(submenu).slideUp("fast");
 
-
-  $(document).on("click", ".menu > li > a", function(e) {
-    e.preventDefault();
-    
-    var submenu = $(this).next(".sub-menu");
-
-    $(".menu > li > .sub-menu").not(submenu).slideUp("fast");
-
-     if {
-      $(this).parent().removeClass("active");
-      submenu.stop(true, true).slideUp("fast");
-    }
-else if (!submenu.is(":visible")) {
-      $(".menu > li").removeClass("active");
-      $(this).parent().addClass("active");
-      submenu.stop(true, true).slideDown("fast");
-    }
+      if (!submenu.is(":visible")) {
+        $(".menu > li").removeClass("active");
+        $(this).parent().addClass("active");
+        submenu.stop(true, true).slideDown("fast");
+      } else {
+        $(this).parent().removeClass("active");
+        submenu.stop(true, true).slideUp("fast");
+      }
+    });
   });
-});
-
-
 </script>
 
 

@@ -326,7 +326,7 @@
 
 
     
-<ul id="menu">
+<ul class="menu">
   <center>
     <div class="sombreada_css3">
       <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
@@ -364,7 +364,7 @@
         }
 
         // Actualiza el contenido dentro del menú sin recrear el menú completo
-        $("#menu").find('ul').html(content);
+        $(".menu").find('ul').html(content);
 
         guardaHorario();
         dT();
@@ -378,6 +378,7 @@
     eventos();
   }, 60000);
 </script>
+
 
 </div>
 <br>

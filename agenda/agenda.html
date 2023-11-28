@@ -318,7 +318,7 @@
 <body link="#547484" onload="guardaHorario();dT();" vlink="#547484">
  <div id="wraper">
 <ul class="menu">
-  <li class="agenda">
+  <span class="agenda">
     <center>
       <div class="sombreada_css3">
         <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
@@ -326,7 +326,7 @@
         </font>
       </div>
     </center>
-  </li>
+  </span>
 </ul>
 
 <script>
@@ -374,36 +374,7 @@
 <br>
    
 <script>
-$(function() {
-  var menu_ul = $(".menu > li > ul"),
-    menu_a = $(".menu > li > a");
 
-  menu_ul.hide();
-
-  menu_a.click(function(e) {
-    e.preventDefault();
-    if (!$(this).hasClass("active")) {
-      menu_a.removeClass("active");
-      menu_ul.filter(":visible").slideUp("fast");
-      $(this).addClass("active").next().stop(true, true).slideDown("fast");
-    } else {
-      menu_a.removeClass("active");
-      menu_ul.filter(":visible").slideUp("fast");
-      $(this).next().stop(true, true).slideUp("fast");
-    }
-    if ($(this).hasClass("active") && menu_ul.find(".menu_sub-menu").is(":visible")) {
-      menu_ul.find(".menu_sub-menu").hide();
-    } else if (!$(this).hasClass("active")) {
-      menu_ul.find(".menu_sub-menu").show();
-    }
-  });
-
-  $(".menu").on("mouseover", function() {
-    $(this).find(".menu_sub-menu").show(); // Show submenu on mouseover
-  }).on("mouseout", function() {
-    $(this).find(".menu_sub-menu").hide(); // Hide submenu on mouseout
-  });
-});
 
 
 </script>

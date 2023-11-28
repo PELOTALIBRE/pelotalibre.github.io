@@ -316,22 +316,18 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body link="#547484" onload="guardaHorario();dT();" vlink="#547484">
- <div id="wrapper">
-  <ul class="menu">
-    <li class="agenda">
-      <center>
-        <div class="sombreada_css3">
-          <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
-            <b>Agenda - Lunes 27 de noviembre de 2023</b>
-          </font>
-        </div>
-      </center>
-      <ul class="sub-menu">
-        <!-- Aquí se mantendrá la estructura original del menú -->
-      </ul>
-    </li>
-  </ul>
-</div>
+ <div id="wraper">
+<ul class="menu">
+  <li class="agenda">
+    <center>
+      <div class="sombreada_css3">
+        <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
+          <b>Agenda - Lunes 27 de noviembre de 2023</b>
+        </font>
+      </div>
+    </center>
+  </li>
+</ul>
 
 <script>
   function eventos() {
@@ -342,7 +338,7 @@
       url: url,
       type: "get",
       success: function(arr) {
-        var menu = $(".menu .sub-menu");
+        var menu = $(".menu");
 
         var content = '';
 
@@ -351,7 +347,7 @@
 
           content += '<li class="' + obj['category'] + '">';
           content += '<a href="#">' + obj['match'] + '<span class="t">' + obj['time'] + '</span></a>';
-          content += '<ul class="subitem1">';
+          content += '<ul class="sub-menu">';
 
           // Recorre los canales
           obj.channels.forEach(function(channel) {
@@ -362,7 +358,7 @@
           content += '</li>';
         }
 
-        menu.html(content);
+        menu.find('.agenda').after(content);
 
         guardaHorario();
         dT();
@@ -372,6 +368,8 @@
 
   eventos();
 </script>
+
+
 </div>
 <br>
    

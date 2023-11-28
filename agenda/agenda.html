@@ -316,18 +316,22 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body link="#547484" onload="guardaHorario();dT();" vlink="#547484">
-    <div id="wraper">
-<ul class="menu">
-  <li class="agenda">
-    <center>
-      <div class="sombreada_css3">
-        <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
-          <b>Agenda - Lunes 27 de noviembre de 2023</b>
-        </font>
-      </div>
-    </center>
-  </li>
-</ul>
+ <div id="wrapper">
+  <ul class="menu">
+    <li class="agenda">
+      <center>
+        <div class="sombreada_css3">
+          <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
+            <b>Agenda - Lunes 27 de noviembre de 2023</b>
+          </font>
+        </div>
+      </center>
+      <ul class="sub-menu">
+        <!-- Aquí se mantendrá la estructura original del menú -->
+      </ul>
+    </li>
+  </ul>
+</div>
 
 <script>
   function eventos() {
@@ -338,7 +342,7 @@
       url: url,
       type: "get",
       success: function(arr) {
-        var menu = $(".menu");
+        var menu = $(".menu .sub-menu");
 
         var content = '';
 
@@ -347,7 +351,7 @@
 
           content += '<li class="' + obj['category'] + '">';
           content += '<a href="#">' + obj['match'] + '<span class="t">' + obj['time'] + '</span></a>';
-          content += '<ul class="sub-menu">';
+          content += '<ul class="subitem1">';
 
           // Recorre los canales
           obj.channels.forEach(function(channel) {
@@ -358,7 +362,7 @@
           content += '</li>';
         }
 
-        menu.find('.agenda').after(content);
+        menu.html(content);
 
         guardaHorario();
         dT();
@@ -369,40 +373,38 @@
   eventos();
 </script>
 
-
-</div>
 <br>
    
 <script>
-
-
-$(document).ready(function() {
-
+	
+$(document).ready(function () {
 
   $(".menu > li > .sub-menu").hide();
 
-  $(document).on("click", ".menu > li > a", function(e) {
+  
+  $(document).on("click", ".menu > li > a", function (e) {
     e.preventDefault();
 
-    var submenu = $(this).siblings(".sub-menu");
-	  
+    var submenu = $(this).next(".sub-menu");
+
+  
     $(".menu > li > .sub-menu").not(submenu).slideUp("fast");
 
+  
     if (!submenu.is(":visible")) {
       $(".menu > li").removeClass("active");
       $(this).parent().addClass("active");
-      submenu.stop(true, true).slideDown("fast");
     } else {
       $(this).parent().removeClass("active");
-      submenu.stop(true, true).slideUp("fast");
     }
+
+  
+    submenu.stop(true, true).slideToggle("fast");
   });
 
+  
   $(".menu > li > .sub-menu").slideUp("fast");
 });
-
-
-
 </script>
 
     <script>

@@ -347,7 +347,7 @@
 
           content += '<li class="' + obj['category'] + '">';
           content += '<a href="#">' + obj['match'] + '<span class="t">' + obj['time'] + '</span></a>';
-          content += '<ul>';
+          content += '<ul class="sub-menu">';
 
           // Recorre los canales
           obj.channels.forEach(function(channel) {
@@ -375,17 +375,22 @@
    
 <script>
 
-$(document).ready(function() {
+$(function() {
+  
   $(".menu > li > ul").hide();
 
-  $(".menu > li > a").click(function(e) {
+  var menu_ul = $(".menu > li > ul"),
+      menu_a = $(".menu > li > a");
+
+  menu_a.click(function(e) {
     e.preventDefault();
-
-    var submenu = $(this).next("ul");
-
-    if (!submenu.is(":visible")) {
-      $(".menu > li > ul").slideUp("fast");
-      submenu.slideDown("fast");
+    if (!$(this).hasClass("active")) {
+      menu_a.removeClass("active");
+      menu_ul.filter(":visible").slideUp("fast");
+      $(this).addClass("active").next().stop(true, true).slideDown("fast");
+    } else {
+      $(this).removeClass("active");
+      $(this).next().stop(true, true).slideUp("fast");
     }
   });
 });

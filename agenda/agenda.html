@@ -337,7 +337,48 @@
 
  
   <script>
-     
+function eventos() {
+  var x = Math.random().toString(36).substring(7);
+  var url = "/agenda/agenda.json?" + x;
+
+  $.ajax({
+    url: url,
+    type: "get",
+    success: function (arr) {
+      var content = '<ul id="schedule">';
+
+      for (var i = 0; i < arr.length; i++) {
+        var obj = arr[i];
+
+        content += '<li class="' + obj['category'] + '">';
+        content += '<a href="#">' + obj['match'] + '<span class="t">' + obj['time'] + '</span></a>';
+        content += '<ul class="subitem1">';
+
+        // Recorre los canales
+        obj.channels.forEach(function (channel) {
+          content += '<li class="subitem1"><a href="' + channel.link + '">' + channel.name + '<span>' + channel.quality + '</span></a></li>';
+        });
+
+        content += '</ul>';
+        content += '</li>';
+      }
+
+      content += '</ul>';
+      $("#eventos").html(content);
+
+      guardaHorario();
+      dT();
+    },
+  });
+}
+
+eventos();
+
+window.setInterval(function () {
+  eventos();
+}, 60000);
+
+
     </script>	
 </ul>
 </div>

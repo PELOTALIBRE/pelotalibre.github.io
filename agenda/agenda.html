@@ -340,6 +340,25 @@
 </ul>
 
 <script>
+  $(document).ready(function() {
+    var menu_ul = $('.menu > li > ul'),
+    menu_a = $('.menu > li > a');
+
+    menu_ul.hide();
+
+    menu_a.click(function(e) {
+      e.preventDefault();
+      if (!$(this).hasClass('active')) {
+        menu_a.removeClass('active');
+        menu_ul.filter(':visible').slideUp('fast');
+        $(this).addClass('active').next().stop(true, true).slideDown('fast');
+      } else {
+        $(this).removeClass('active');
+        $(this).next().stop(true, true).slideUp('fast');
+      }
+    });
+  });
+
   function eventos() {
     var x = Math.random().toString(36).substring(7);
     var url = "/agenda/agenda.json?" + x;
@@ -347,7 +366,7 @@
     $.ajax({
       url: url,
       type: "get",
-      success: function (arr) {
+      success: function(arr) {
         var menu = $(".menu");
 
         var content = '';
@@ -360,7 +379,7 @@
           content += '<ul>';
 
           // Recorre los canales
-          obj.channels.forEach(function (channel) {
+          obj.channels.forEach(function(channel) {
             content += '<li class="subitem1"><a href="' + channel.link + '">' + channel.name + '<span>' + channel.quality + '</span></a></li>';
           });
 
@@ -368,7 +387,6 @@
           content += '</li>';
         }
 
-       
         menu.find('.agenda').after(content);
 
         guardaHorario();
@@ -378,6 +396,7 @@
   }
 
   eventos();
+</script>
 
 
 </script>

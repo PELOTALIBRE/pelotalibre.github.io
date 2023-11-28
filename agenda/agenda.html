@@ -345,7 +345,7 @@ function eventos() {
     url: url,
     type: "get",
     success: function (arr) {
-      var content = '<div id="schedule">';
+      var content = '<div id="schedule">'; 
 
       for (var i = 0; i < arr.length; i++) {
         var obj = arr[i];
@@ -364,7 +364,7 @@ function eventos() {
       }
 
       content += '</div>';
-      $("#eventos").html(content);
+      $("#schedule").html(content);  
 
       guardaHorario();
       dT();
@@ -377,6 +377,7 @@ eventos();
 window.setInterval(function () {
   eventos();
 }, 60000);
+
 
 
     </script>	

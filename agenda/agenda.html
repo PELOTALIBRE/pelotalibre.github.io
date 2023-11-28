@@ -378,10 +378,14 @@
 
 $(document).ready(function() {
 
+
+  $(".menu > li > .sub-menu").hide();
+
   $(document).on("click", ".menu > li > a", function(e) {
     e.preventDefault();
     
     var submenu = $(this).next(".sub-menu");
+
 
     $(".menu > li > .sub-menu").not(submenu).slideUp("fast");
 
@@ -395,8 +399,10 @@ $(document).ready(function() {
     }
   });
 
+  
   $(".menu > li > .sub-menu").slideUp("fast");
 });
+
 
 
 </script>

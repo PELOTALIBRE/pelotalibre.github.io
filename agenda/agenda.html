@@ -310,6 +310,22 @@
         i {
             font-weight: bold;
         }
+
+					      
+.menu ul.sub-menu {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  transition: visibility 0s, height 0.5s;
+}
+
+
+.menu ul.sub-menu.active {
+  visibility: visible;
+  height: auto;
+  transition: visibility 0s, height 0.5s;
+}
+
     </style>
 
 

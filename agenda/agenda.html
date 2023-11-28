@@ -374,23 +374,26 @@
 <br>
    
 <script>
-$(document).ready(function() {
- 
-  $(".menu > li > .sub-menu").hide();
+$(function() {
+  var menu_ul = $(".menu > li > ul"),
+    menu_a = $(".menu > li > a");
 
-  $(document).on("click", ".menu > li > a", function(e) {
+  menu_ul.hide();
+
+  menu_a.click(function(e) {
     e.preventDefault();
+    if (!$(this).hasClass("active")) {
+      menu_a.removeClass("active");
+      menu_ul.filter(":visible").slideUp("fast");
+      $(this).addClass("active").next().stop(true, true).slideDown("fast");
+    }
+    menu_ul.find(".menu_sub-menu").toggle();
+  });
 
-    var submenu = $(this).siblings(".sub-menu");
-
-    
-    $(".menu > li > .sub-menu").not(submenu).slideUp("fast");
-
- 
-    submenu.stop(true, true).slideToggle("fast");
-
-    
-    $(this).parent().toggleClass("active", submenu.is(":visible"));
+  $(".menu").on("mouseover", function() {
+    $(this).find(".menu_sub-menu").show(); // Show submenu on mouseover
+  }).on("mouseout", function() {
+    $(this).find(".menu_sub-menu").hide(); // Hide submenu on mouseout
   });
 });
 

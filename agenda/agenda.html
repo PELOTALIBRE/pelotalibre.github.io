@@ -326,63 +326,59 @@
 
 
     
- <ul id="menu">
-<center>
-<div class="sombreada_css3">
-<font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
-<b>Agenda - Lunes 27 de noviembre de 2023</b>
-</font>
-</div>
-</center>
-	 
- </ul>
+<ul id="menu">
+  <center>
+    <div class="sombreada_css3">
+      <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
+        <b>Agenda - Lunes 27 de noviembre de 2023</b>
+      </font>
+    </div>
+  </center>
+</ul>
 
- 
-  <script>
-function eventos() {
-  var x = Math.random().toString(36).substring(7);
-  var url = "/agenda/agenda.json?" + x;
+<script>
+  function eventos() {
+    var x = Math.random().toString(36).substring(7);
+    var url = "/agenda/agenda.json?" + x;
 
-  $.ajax({
-    url: url,
-    type: "get",
-    success: function (arr) {
-      var content = '<ul id="menu">'; 
+    $.ajax({
+      url: url,
+      type: "get",
+      success: function (arr) {
+        var content = '';
 
-      for (var i = 0; i < arr.length; i++) {
-        var obj = arr[i];
+        for (var i = 0; i < arr.length; i++) {
+          var obj = arr[i];
 
-        content += '<li class="' + obj['category'] + '">';
-        content += '<a href="#">' + obj['match'] + '<span class="t">' + obj['time'] + '</span></a>';
-        content += '<ul>';
+          content += '<li class="' + obj['category'] + '">';
+          content += '<a href="#">' + obj['match'] + '<span class="t">' + obj['time'] + '</span></a>';
+          content += '<ul>';
 
-        // Recorre los canales
-        obj.channels.forEach(function (channel) {
-          content += '<li class="subitem1"><a href="' + channel.link + '">' + channel.name + '<span>' + channel.quality + '</span></a></li>';
-        });
+          // Recorre los canales
+          obj.channels.forEach(function (channel) {
+            content += '<li class="subitem1"><a href="' + channel.link + '">' + channel.name + '<span>' + channel.quality + '</span></a></li>';
+          });
 
-        content += '</ul>';
-        content += '</li>';
-      }
+          content += '</ul>';
+          content += '</li>';
+        }
 
-      content += '</ul>';
-      $("#menu").html(content);  
+        // Actualiza el contenido dentro del menú sin recrear el menú completo
+        $("#menu").find('ul').html(content);
 
-      guardaHorario();
-      dT();
-    },
-  });
-}
+        guardaHorario();
+        dT();
+      },
+    });
+  }
 
-eventos();
-
-window.setInterval(function () {
   eventos();
-}, 60000);
 
+  window.setInterval(function () {
+    eventos();
+  }, 60000);
+</script>
 
-
-    </script>	
 </div>
 <br>
    

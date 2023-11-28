@@ -376,35 +376,26 @@
 <br>
    
 <script>
-	
-$(document).ready(function () {
-
+$(document).ready(function() {
+ 
   $(".menu > li > .sub-menu").hide();
 
-  
-  $(document).on("click", ".menu > li > a", function (e) {
+  $(document).on("click", ".menu > li > a", function(e) {
     e.preventDefault();
 
-    var submenu = $(this).next(".sub-menu");
+    var submenu = $(this).siblings(".sub-menu");
 
-  
+    
     $(".menu > li > .sub-menu").not(submenu).slideUp("fast");
 
-  
-    if (!submenu.is(":visible")) {
-      $(".menu > li").removeClass("active");
-      $(this).parent().addClass("active");
-    } else {
-      $(this).parent().removeClass("active");
-    }
-
-  
+ 
     submenu.stop(true, true).slideToggle("fast");
-  });
 
-  
-  $(".menu > li > .sub-menu").slideUp("fast");
+    
+    $(this).parent().toggleClass("active", submenu.is(":visible"));
+  });
 });
+
 </script>
 
     <script>

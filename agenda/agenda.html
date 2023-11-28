@@ -371,28 +371,21 @@
 </script>
 
 <script>
-  $(function() {
-    var menu_ul = $('.menu > li > ul')
-      , menu_a = $('.menu > li > a');
+ $(document).ready(function() {
+    var menu_ul = $('.menu > li > ul'),
+    menu_a = $('.menu > li > a');
 
-   
     menu_ul.hide();
 
     menu_a.click(function(e) {
       e.preventDefault();
-      var $this = $(this);
-      var targetUL = $this.next();
-
-      if (!$this.hasClass('active')) {
+      if (!$(this).hasClass('active')) {
         menu_a.removeClass('active');
         menu_ul.filter(':visible').slideUp('fast');
-        $this.addClass('active');
-
-        // Muestra el submenú correspondiente
-        targetUL.stop(true, true).slideDown('fast');
+        $(this).addClass('active').next().stop(true, true).slideDown('fast');
       } else {
-        $this.removeClass('active');
-        targetUL.stop(true, true).slideUp('fast');
+        $(this).removeClass('active');
+        $(this).next().stop(true, true).slideUp('fast');
       }
     });
   });

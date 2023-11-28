@@ -1,5 +1,6 @@
 [
   {
+    "category": "AR",
     "match": "Copa de la Liga Profesional: San Lorenzo vs. Central Córdoba",
     "time": "23:00",
     "channels": [
@@ -7,8 +8,24 @@
         "name": "ESPN Premium",
         "link": "https://television-libre.online/html/red/?r=aHR0cHM6Ly90ZWxldmlzaW9uLWxpYnJlLm9ubGluZS9lbi12aXZvL2VzcG4tcHJlbWl1bS8=",
         "quality": "Calidad 1080p"
-      },
+      }
     ]
   },
-  
+  {
+    "category": "AR",
+    "match": "Copa de la Liga Profesional: Estudiantes vs. Lanús",
+    "time": "23:00",
+    "channels": [
+      {
+        "name": "TNT Sports",
+        "link": "https://television-libre.online/html/red/?r=aHR0cHM6Ly90ZWxldmlzaW9uLWxpYnJlLm9ubGluZS9lbi12aXZvL3RudC1zcG9ydHMv",
+        "quality": "Calidad 1080p"
+      },
+      {
+        "name": "VIX+",
+        "link": "https://television-libre.online/html/red/?r=aHR0cHM6Ly90ZWxldmlzaW9uLWxpYnJlLm9ubGluZS92aXgtcGx1cy8=",
+        "quality": "Calidad 1080p"
+      }
+    ]
+  }
 ]

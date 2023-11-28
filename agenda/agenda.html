@@ -327,13 +327,16 @@
 
     
 <ul class="menu">
-  <center>
-    <div class="sombreada_css3">
-      <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
-        <b>Agenda - Lunes 27 de noviembre de 2023</b>
-      </font>
-    </div>
-  </center>
+  <li class="agenda">
+    <center>
+      <div class="sombreada_css3">
+        <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
+          <b>Agenda - Lunes 27 de noviembre de 2023</b>
+        </font>
+      </div>
+    </center>
+  </li>
+  <!-- Aquí se mantiene la estructura original del menú -->
 </ul>
 
 <script>
@@ -365,8 +368,8 @@
           content += '</li>';
         }
 
-        // Actualiza el contenido dentro del menú sin recrear la estructura
-        menu.html(content);
+       
+        menu.find('.agenda').after(content);
 
         guardaHorario();
         dT();
@@ -376,10 +379,11 @@
 
   eventos();
 
+  window.setInterval(function () {
+    eventos();
+  }, 60000);
 </script>
 
-
-</script>
 
 
 </div>

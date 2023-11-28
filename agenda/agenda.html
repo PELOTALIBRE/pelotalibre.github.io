@@ -317,15 +317,6 @@
 </head>
 <body link="#547484" onload="guardaHorario();dT();" vlink="#547484">
     <div id="wraper">
-		
-
-
-
-
-
-
-
-    
 <ul class="menu">
   <li class="agenda">
     <center>
@@ -336,38 +327,9 @@
       </div>
     </center>
   </li>
-  <!-- Aquí se mantiene la estructura original del menú -->
 </ul>
 
 <script>
-
-$(document).ready(function() {
- 
-  $(document).on("click", ".menu > li > a", function(e) {
-    e.preventDefault();
-    var submenu = $(this).next("ul");
-
-
-    $(".menu > li > ul").not(submenu).slideUp("fast");
-
-    if (!submenu.is(":visible")) {
-     
-      $(".menu > li").removeClass("active");
-      $(this).parent().addClass("active");
-      submenu.stop(true, true).slideDown("fast");
-    } else {
-     
-      $(this).parent().removeClass("active");
-      submenu.stop(true, true).slideUp("fast");
-    }
-  });
-
-  // Cierra todos los submenús al inicio
-  $(".menu > li > ul").slideUp("fast");
-});
-
-
-
   function eventos() {
     var x = Math.random().toString(36).substring(7);
     var url = "/agenda/agenda.json?" + x;
@@ -408,19 +370,25 @@ $(document).ready(function() {
 </script>
 
 
-</script>
-
-
-
 </div>
 <br>
    
 <script>
 
+$(document).ready(function() {
+  $(".menu > li > ul").hide();
 
+  $(".menu > li > a").click(function(e) {
+    e.preventDefault();
 
+    var submenu = $(this).next("ul");
 
-
+    if (!submenu.is(":visible")) {
+      $(".menu > li > ul").slideUp("fast");
+      submenu.slideDown("fast");
+    }
+  });
+});
 
 
 </script>

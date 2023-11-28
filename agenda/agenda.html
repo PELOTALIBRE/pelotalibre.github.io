@@ -316,6 +316,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body link="#547484" onload="guardaHorario();dT();" vlink="#547484">
     <div id="wraper">
@@ -335,10 +336,49 @@
 
 
     
-
+ <div id="schedule"></div>
 
  
-		
+  <script>
+        $(document).ready(function() {
+        
+            var jsonData = [
+              
+            ];
+
+         
+            function insertData() {
+                var scheduleContainer = $('#schedule');
+
+           
+                jsonData.forEach(function(match) {
+                    var matchElement = $('<div>').addClass('match');
+                    matchElement.append($('<h2>').text(match.match));
+                    
+                  
+                    var timeClass = match.time.class || '';
+                    var timeElement = $('<span>').addClass(timeClass).text(match.time.value);
+                    matchElement.append($('<p>').text('Hora: ').append(timeElement));
+
+                   
+                    var channelsList = $('<ul>').addClass('channels');
+                    match.channels.forEach(function(channel) {
+                        var channelItem = $('<li>').append(
+                            $('<a>').attr('href', channel.link).text(channel.name),
+                            $('<span>').text(channel.quality)
+                        );
+                        channelsList.append(channelItem);
+                    });
+
+                    matchElement.append(channelsList);
+                    scheduleContainer.append(matchElement);
+                });
+            }
+
+        
+            insertData();
+        });
+    </script>		
 </ul>
 </div>
 <br>

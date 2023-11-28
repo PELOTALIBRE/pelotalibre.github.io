@@ -337,44 +337,7 @@
 
  
   <script>
-        $(document).ready(function() {
-           
-            var jsonUrl = 'agenda.json';
-
-           
-            function insertData(data) {
-                var scheduleContainer = $('#schedule');
-
-            
-                data.forEach(function(match) {
-                    var matchList = $('<ul>').addClass('match');
-                    matchList.append($('<li>').append($('<h2>').text(match.match)));
-
-                    var timeClass = match.time.class || '';
-                    var timeElement = $('<span>').addClass(timeClass).text(match.time.value);
-                    matchList.append($('<li>').text('Hora: ').append(timeElement));
-
-                 
-                    var channelsList = $('<ul>').addClass('channels');
-                    match.channels.forEach(function(channel) {
-                        var channelItem = $('<li>').append(
-                            $('<a>').attr('href', channel.link).text(channel.name),
-                            $('<span>').text(channel.quality)
-                        );
-                        channelsList.append(channelItem);
-                    });
-
-                    matchList.append(channelsList);
-                    scheduleContainer.append(matchList);
-                });
-            }
-
-          
-            $.getJSON(jsonUrl, function(data) {
-               
-                insertData(data);
-            });
-        });
+     
     </script>	
 </ul>
 </div>

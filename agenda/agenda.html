@@ -317,12 +317,16 @@
 </head>
 <body link="#547484" onload="guardaHorario();dT();" vlink="#547484">
     <div id="wraper">
-        <ul class="menu">
 		
 
 
 
 
+
+
+
+    
+ <ul id="menu">
 <center>
 <div class="sombreada_css3">
 <font size=2 face="Helvetica Neue,Helvetica,Arial,sans-serif" color="#FFFFFF">
@@ -330,10 +334,8 @@
 </font>
 </div>
 </center>
-
-
-    
- <div id="schedule"></div>
+	 
+ </ul>
 
  
   <script>
@@ -345,14 +347,14 @@ function eventos() {
     url: url,
     type: "get",
     success: function (arr) {
-      var content = '<div id="schedule">'; 
+      var content = '<ul id="menu">'; 
 
       for (var i = 0; i < arr.length; i++) {
         var obj = arr[i];
 
         content += '<li class="' + obj['category'] + '">';
         content += '<a href="#">' + obj['match'] + '<span class="t">' + obj['time'] + '</span></a>';
-        content += '<ul class="subitem1">';
+        content += '<ul>';
 
         // Recorre los canales
         obj.channels.forEach(function (channel) {
@@ -363,8 +365,8 @@ function eventos() {
         content += '</li>';
       }
 
-      content += '</div>';
-      $("#schedule").html(content);  
+      content += '</ul>';
+      $("#menu").html(content);  
 
       guardaHorario();
       dT();
@@ -381,7 +383,6 @@ window.setInterval(function () {
 
 
     </script>	
-</ul>
 </div>
 <br>
    

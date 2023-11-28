@@ -393,25 +393,32 @@
    
 <script>
   $(document).ready(function() {
-    var menu_ul = $('.menu ul.sub-menu'),
-    menu_a = $('.menu > li > a');
 
-    menu_ul.hide();
+  // Oculta todos los submenús al principio
+  $(".menu > li > .sub-menu").hide();
 
-    menu_a.click(function(e) {
-      e.preventDefault();
-      var current_ul = $(this).next('ul.sub-menu');
-      if (!$(this).hasClass('active')) {
-        menu_a.removeClass('active');
-        menu_ul.filter(':visible').slideUp('fast').removeClass('active');
-        $(this).addClass('active');
-        current_ul.stop(true, true).slideDown('fast').addClass('active');
-      } else {
-        $(this).removeClass('active');
-        current_ul.stop(true, true).slideUp('fast').removeClass('active');
-      }
-    });
+  $(document).on("click", ".menu > li > a", function(e) {
+    e.preventDefault();
+    
+    var submenu = $(this).next(".sub-menu");
+
+    
+    $(".menu > li > .sub-menu").not(submenu).slideUp("fast");
+
+    if (!submenu.is(":visible")) {
+      $(".menu > li").removeClass("active");
+      $(this).parent().addClass("active");
+      submenu.stop(true, true).slideDown("fast");
+    } else {
+      $(this).parent().removeClass("active");
+      submenu.stop(true, true).slideUp("fast");
+    }
   });
+
+
+  $(".menu > li > .sub-menu").slideUp("fast");
+});
+
 </script>
 
 

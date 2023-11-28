@@ -379,9 +379,7 @@
 
   eventos();
 
-  window.setInterval(function () {
-    eventos();
-  }, 60000);
+
 </script>
 
 
@@ -391,30 +389,11 @@
    
 <script>
 
-$(document).ready(function() {
-
-  $(document).on("click", ".menu > li > a", function(e) {
-    e.preventDefault();
-    var submenu = $(this).next("ul");
 
 
-    $(".menu > li > ul").not(submenu).slideUp("fast");
 
-    if (!submenu.is(":visible")) {
-     
-      $(".menu > li").removeClass("active");
-      $(this).parent().addClass("active");
-      submenu.stop(true, true).slideDown("fast");
-    } else {
-   
-      $(this).parent().removeClass("active");
-      submenu.stop(true, true).slideUp("fast");
-    }
-  });
 
- 
-  $(".menu > li > ul").slideUp("fast");
-});
+
 
 </script>
 

@@ -1,0 +1,17 @@
+[
+  {
+    "match": "Copa de la Liga Profesional: San Lorenzo vs. Central Córdoba",
+    "time": {
+      "class": "t",
+      "value": "23:00"
+    },
+    "channels": [
+      {
+        "name": "ESPN Premium",
+        "link": "https://television-libre.online/html/red/?r=aHR0cHM6Ly90ZWxldmlzaW9uLWxpYnJlLm9ubGluZS9lbi12aXZvL2VzcG4tcHJlbWl1bS8=",
+        "quality": "Calidad 1080p"
+      },
+    ]
+  },
+  
+]

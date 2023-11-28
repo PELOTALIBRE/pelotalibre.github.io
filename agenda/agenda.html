@@ -341,26 +341,23 @@
  
   <script>
         $(document).ready(function() {
-        
-            var jsonData = [
-              
-            ];
-
-         
-            function insertData() {
-                var scheduleContainer = $('#schedule');
+           
+            var jsonUrl = 'agenda.json';
 
            
-                jsonData.forEach(function(match) {
-                    var matchElement = $('<div>').addClass('match');
-                    matchElement.append($('<h2>').text(match.match));
-                    
-                  
+            function insertData(data) {
+                var scheduleContainer = $('#schedule');
+
+            
+                data.forEach(function(match) {
+                    var matchList = $('<ul>').addClass('match');
+                    matchList.append($('<li>').append($('<h2>').text(match.match)));
+
                     var timeClass = match.time.class || '';
                     var timeElement = $('<span>').addClass(timeClass).text(match.time.value);
-                    matchElement.append($('<p>').text('Hora: ').append(timeElement));
+                    matchList.append($('<li>').text('Hora: ').append(timeElement));
 
-                   
+                 
                     var channelsList = $('<ul>').addClass('channels');
                     match.channels.forEach(function(channel) {
                         var channelItem = $('<li>').append(
@@ -370,15 +367,18 @@
                         channelsList.append(channelItem);
                     });
 
-                    matchElement.append(channelsList);
-                    scheduleContainer.append(matchElement);
+                    matchList.append(channelsList);
+                    scheduleContainer.append(matchList);
                 });
             }
 
-        
-            insertData();
+          
+            $.getJSON(jsonUrl, function(data) {
+               
+                insertData(data);
+            });
         });
-    </script>		
+    </script>	
 </ul>
 </div>
 <br>

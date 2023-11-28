@@ -345,7 +345,7 @@ function eventos() {
     url: url,
     type: "get",
     success: function (arr) {
-      var content = '<ul id="schedule">';
+      var content = '<div id="schedule">';
 
       for (var i = 0; i < arr.length; i++) {
         var obj = arr[i];
@@ -363,7 +363,7 @@ function eventos() {
         content += '</li>';
       }
 
-      content += '</ul>';
+      content += '</div>';
       $("#eventos").html(content);
 
       guardaHorario();

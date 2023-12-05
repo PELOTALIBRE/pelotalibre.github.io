@@ -46,17 +46,21 @@
     </script>
 
     <script>
-        var playerInstance = jwplayer("player");
-        playerInstance.setup({
-            file: "https://cors-anywhere.herokuapp.com/" + atob(getURL),
-            image: atob(getIMG),
-            type: "hls",
-            width: "100%",
-            height: "100%",
-            aspectratio: "16:9",
-            autostart: false,
-            cast: {}
-        });
+      var playerInstance = jwplayer("player");
+playerInstance.setup({
+    file: "https://cors-anywhere.herokuapp.com/" + atob(getURL), 
+    image: atob(getIMG),
+    type: "hls",
+    width: "100%",
+    height: "100%",
+    aspectratio: "16:9",
+    autostart: false,
+    cast: {},
+    headers: {
+        "Origin": "https://pelotalibre.lat"  
+    }
+});
+
         if (getLang == "") {
             lang = 1;
         }

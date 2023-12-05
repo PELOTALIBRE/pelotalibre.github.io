@@ -996,9 +996,7 @@ playerInstance.setup({
 
 });
 
-if (getLang == "") {
-	getLang = 0;
-}
+
 
 jwplayer().on('play', function(e) {
   jwplayer().setCurrentAudioTrack(getLang);

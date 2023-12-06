@@ -35,11 +35,12 @@
                 sharing: {}
             });
 
-            playerInstance.on('error', function(event) {
-                if (event.code === 232403) {
-                    location.reload();
-                }
-            });
+           playerInstance.on('error', function(event) {
+    if (event.code === 232403) {
+        window.location.href = 'https://tucanaldeportivo.com/winsports.php';
+    }
+});
+
         });
     </script>
 </body>

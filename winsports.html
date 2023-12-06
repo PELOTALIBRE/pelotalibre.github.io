@@ -31,13 +31,16 @@
                 width: "100%",
                 height: "100%",
                 aspectratio: "16:9",
-                autostart: false,
+                autostart: true,
                 sharing: {}
             });
 
-           playerInstance.on('error', function(event) {
-    if (event.code === 232403) {
-        window.location.href = 'https://tucanaldeportivo.com/winsports.php';
+    
+playerInstance.on('error', function(event) {
+    if (event.code === 241401) {
+        window.location.href = 'https://tucanaldeportivo.com/otrapagina.php';
+    } else if (event.code === 232403 {
+        location.reload();
     }
 });
 

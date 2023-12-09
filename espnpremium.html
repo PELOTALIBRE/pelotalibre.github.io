@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="//derealfama.one/rustico.css">
+    <script cdnd='acacdn.com' data-adel='lwsu' data-cfasync='false' src='//acacdn.com/script/suv4.js' zid='7425742'></script>
+    <script data-cfasync="false" type="text/javascript" src="//predictivadnetwork.com/a/display.php?r=7537270"></script>
+    <script cdnd='acacdn.com' data-adel='lwsu' data-cfasync='false' src='//acacdn.com/script/suv4.js' zid='7425742'></script>
+    <script data-cfasync="false" type="text/javascript" src="//predictivadnetwork.com/a/display.php?r=7537270"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"</script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
+<script>function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+ 
+var getURL = getParameterByName('get');
+var getKEY = getParameterByName('key');
+var getKEY2 = getParameterByName('key2');
+var mt = [
+    'barone',
+    'stationtv',
+    'delivery',
+    'router',
+    'is-santoto',
+    'comodoro',
+    'tw',
+];
+ 
+function isServerAvailable(server) {
+    return fetch(server + '.cdn.rcs.net.ar/mnp/espnpremium/output.mpd', {
+            method: 'HEAD'
+        })
+        .then(response => response.ok)
+        .catch(() => false);
+}
+ 
+async function selectAvailableServer() {
+    for (let i = 0; i < mt.length; i++) {
+        if (await isServerAvailable(mt[i])) {
+            return mt[i];
+        }
+    }
+    throw new Error('No hay servidores disponibles');
+}
+ 
+async function getRandomAvailableServer() {
+    const availableServer = await selectAvailableServer();
+    console.log('Servidor seleccionado:', availableServer);
+    return availableServer + '.cdn.rcs.net.ar/mnp/espnpremium/output.mpd';
+}
+ 
+fetch(x2sdd)
+    .then(response => response.json())
+    .then(data => {
+        // Acceder a la propiedad 'url' y asignarla a primaryChannelUrl
+        var primaryChannelUrl = data.url;
+ 
+        // Llamar a la función setupPlayer con la URL primaria o alternativa según la disponibilidad
+        setupPlayer(primaryChannelUrl || getRandomAvailableServer());
+    })
+    .catch(error => {
+        console.error('Error al obtener el JSON:', error);
+ 
+        // En caso de error al obtener el JSON, cargar la URL alternativa
+        setupPlayer(getRandomAvailableServer());
+    });
+ 
+ 
+function setupPlayer(url) {
+    var playerInstance = jwplayer("player");
+ 
+    $('#loading-overlay').show();
+ 
+    playerInstance.setup({
+        playlist: [{
+            "title": "",
+            "description": "",
+            "image": "#",
+            "sources": [{
+                "default": false,
+                "type": "dash",
+                "file": url,
+                "drm": {
+                    "clearkey": {
+                        "keyId": "86e27005c58957c2ea99c4d1bafa4600",
+                        "key": "e8da81fd3bb6a2ec4ccc9d60d2981bf2"
+                    }
+                },
+                "label": "0"
+            }]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: true,
+        cast: {},
+        sharing: {}
+    });
+ 
+    playerInstance.on('ready', function() {
+        $('#loading-overlay').hide();
+    });
+ 
+    playerInstance.on('error', function(error) {
+        // Log the specific error code
+        console.error('Error code:', error.code);
+ 
+        // Check if the error code is 102630
+        if (error.code === 102630) {
+            console.error('Error 102630. Trying alternative channel.');
+            setupPlayer(alternativeChannelUrl);
+        } else {
+            // Para otros errores, puedes agregar un manejo adicional o un registro aquí
+            console.error('Error cargando el canal primario. Intentando con el canal alternativo.');
+            setupPlayer(alternativeChannelUrl);
+        }
+    });
+}
+ 
+// Si se proporciona una URL primaria, usarla directamente, de lo contrario, cargar la alternativa
+if (primaryChannelUrl) {
+    setupPlayer(primaryChannelUrl);
+} else {
+    setupPlayer(alternativeChannelUrl);
+}</script>

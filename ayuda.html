@@ -16,80 +16,79 @@
   <div id="player"></div>
 
  <script>
-    let token = "eyJ0eXAiOiJKV1QiLCJraWQiOiJ3VTNpZklJYUxPVUFSZVJCL0ZHNmVNMVAxUU09IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9oYXNoIjoiY01rQjdOaGVySjliN0cwekdrSWhBUSIsInN1YiI6InZpZ2lhcGFzQGhvdG1haWwuY29tIiwiYnVzaW5lc3NVbml0IjoiU1NMQS1EVEgiLCJyZWdpb25zIjpbImY5MTdjZmY2LTAyNWEtNDkxNy04NGQ2LWZiNjg2Njk3ZDkzYyIsIjJlMTY3MjM3LWM3YmItNDIzYi1iNjA2LWMzMTExNWFkYjFkYSJdLCJhdWRpdFRyYWNraW5nSWQiOiIwZjhjMmQ0Mi05NjgwLTQzMzYtODU4Ni1jMTM2NTYzZGI1MGItNTEzMzIzNzEiLCJpc28yQ29kZSI6IkFSIiwiaXNzIjoiaHR0cHM6Ly9wcm9kcm9jay5kaXJlY3R2Z28uY29tOjQ0My9vcGVuYW0vb2F1dGgyL3JlYWxtcy9yb290L3JlYWxtcy9zc2xhIiwidG9rZW5OYW1lIjoiaWRfdG9rZW4iLCJkZXZpY2VJZCI6IlgzQ1U3dWh2RkFRWUhhM0lfQVpGanJVQWd4NFNPNVdTMGhGTkhSbFJlX2MiLCJjdXN0b21lclN0YXR1cyI6IkFjdGl2ZSIsImF6cCI6ImR0dmdvIiwiZmFtaWx5TmFtZSI6IlNBWUVTIiwiYXV0aF90aW1lIjoxNzAxODA1OTA3LCJjdXN0b21lcklkIjoiMjM3MjgxODYiLCJleHAiOjE3MDIxNDI0MDAsImlhdCI6MTcwMTk3NjgwMCwiY3VzdG9tZXJTdGF0dXNNZXNzYWdlIjoiMTAwMSIsImlic0FjY291bnRTdGF0dXMiOiJBQ1RJVkUiLCJnaXZlbk5hbWUiOiJQQUJMTyBBTEVYSSIsInNlcnZpY2VQcm92aWRlckFjY291bnRJZCI6IjU4MGVkZWNmLWVhN2QtNDY2Ni1hNDI5LTQwZmVjY2E3MmM1YiIsInZyaW9EZXZpY2VJZCI6ImRhYmFlY2YwLTAxNTMtNDQzMy04YzhlLWM3MWFjZTdlNGFlOCIsImF1ZCI6ImR0dmdvIiwiY2hhbm5lbHMiOlsiQ0gwMTAwMDAwMDAwMDE5IiwiQ0gwMTAwMDAwMDAwMTY3IiwiQ0gwMTAwMDAwMDAwMDc2IiwiQ0gwMTAwMDAwMDAwMTA3IiwiQ0gwMTAwMDAwMDAwMjAyIiwiQ0gwMTAwMDAwMDAwMDI2IiwiQ0gwMTAwMDAwMDAwMTY5IiwiQ0gwMTAwMDAwMDAwMTUxIiwiQ0gwMTAwMDAwMDAwMjE2IiwiQ0gwMTAwMDAwMDAwMjA5IiwiQ0gwMTAwMDAwMDAwMDc1IiwiQ0gwMTAwMDAwMDAwMjk1IiwiQ0gwMTAwMDAwMDAwMjkzIiwiQ0gwMTAwMDAwMDAwMDM5IiwiQ0gwMTAwMDAwMDAwMDg3IiwiQ0gwMTAwMDAwMDAwMjI5IiwiQ0gwMTAwMDAwMDAwMDE4IiwiQ0gwMTAwMDAwMDAwMDY4IiwiQ0gwMTAwMDAwMDAwMDM4IiwiQ0gwMTAwMDAwMDAwMDIwIiwiQ0gwMTAwMDAwMDAwMDE1IiwiQ0gwMTAwMDAwMDAwMTQyIiwiQ0gwMTAwMDAwMDAwMTQwIiwiQ0gwMTAwMDAwMDAwMTcxIiwiQ0gwMTAwMDAwMDAwMTE3IiwiQ0gwMTAwMDAwMDAwMDY1IiwiQ0gwMTAwMDAwMDAwMDQ2IiwiQ0gwMTAwMDAwMDAwMjM1IiwiQ0gwMTAwMDAwMDAwMjg2IiwiQ0gwMTAwMDAwMDAwMjMwIiwiQ0gwMTAwMDAwMDAwMjkyIiwiQ0gwMTAwMDAwMDAwMDUxIiwiQ0gwMTAwMDAwMDAwMTM5IiwiQ0gwMTAwMDAwMDAwMjAzIiwiQ0gwMTAwMDAwMDAwMDUwIiwiQ0gwMTAwMDAwMDAwMDc0IiwiQ0gwMTAwMDAwMDAwMTE4IiwiQ0gwMTAwMDAwMDAwMDE2IiwiQ0gwMTAwMDAwMDAwMTYxIiwiQ0gwMTAwMDAwMDAwMTYzIiwiQ0gwMTAwMDAwMDAwMDEwIiwiQ0gwMTAwMDAwMDAwMDM2IiwiQ0gwMTAwMDAwMDAwMjE0IiwiQ0gwMTAwMDAwMDAwMTYyIiwiQ0gwMTAwMDAwMDAwMjcxIiwiQ0gwMTAwMDAwMDAwMTc3IiwiQ0gwMTAwMDAwMDAwMDgwIiwiQ0gwMTAwMDAwMDAwMDY0IiwiQ0gwMTAwMDAwMDAwMDk0IiwiQ0gwMTAwMDAwMDAwMDg2IiwiQ0gwMTAwMDAwMDAwMTA0IiwiQ0gwMTAwMDAwMDAwMTQ4IiwiQ0gwMTAwMDAwMDAwMTE2IiwiQ0gwMTAwMDAwMDAwMTg2IiwiQ0gwMTAwMDAwMDAwMjE1IiwiQ0gwMTAwMDAwMDAwMjIzIiwiQ0gwMTAwMDAwMDAwMjI1IiwiQ0gwMTAwMDAwMDAwMjQ3IiwiQ0gwMTAwMDAwMDAwMjQ5IiwiQ0gwMTAwMDAwMDAwMjU5IiwiQ0gwMTAwMDAwMDAwMDIxIiwiQ0gwMTAwMDAwMDAwMTI4IiwiQ0gwMTAwMDAwMDAwMDM3IiwiQ0gwMTAwMDAwMDAwMjY4IiwiQ0gwMTAwMDAwMDAwMjM2IiwiQ0gwMTAwMDAwMDAwMjQ2IiwiQ0gwMTAwMDAwMDAwMDMwIiwiQ0gwMTAwMDAwMDAwMTQ2IiwiQ0gwMTAwMDAwMDAwMTUyIiwiQ0gwMTAwMDAwMDAwMTU1IiwiQ0gwMTAwMDAwMDAwMTE1IiwiQ0gwMTAwMDAwMDAwMDMxIiwiQ0gwMTAwMDAwMDAwMTk0IiwiQ0gwMTAwMDAwMDAwMjExIiwiQ0gwMTAwMDAwMDAwMjY5IiwiQ0gwMTAwMDAwMDAwMjYzIiwiQ0gwMTAwMDAwMDAwMDk4IiwiQ0gwMTAwMDAwMDAwMjA3IiwiQ0gwMTAwMDAwMDAwMDUzIiwiQ0gwMTAwMDAwMDAwMDQ0IiwiQ0gwMTAwMDAwMDAwMDQwIiwiQ0gwMTAwMDAwMDAwMTgyIiwiQ0gwMTAwMDAwMDAwMDQ4IiwiQ0gwMTAwMDAwMDAwMjA1IiwiQ0gwMTAwMDAwMDAwMjcwIiwiQ0gwMTAwMDAwMDAwMjY3IiwiQ0gwMTAwMDAwMDAwMDUyIiwiQ0gwMTAwMDAwMDAwMDkzIiwiQ0gwMTAwMDAwMDAwMjIyIiwiQ0gwMTAwMDAwMDAwMDcwIiwiQ0gwMTAwMDAwMDAwMjM5IiwiQ0gwMTAwMDAwMDAwMDcxIiwiQ0gwMTAwMDAwMDAwMDg1IiwiQ0gwMTAwMDAwMDAwMDg5IiwiQ0gwMTAwMDAwMDAwMTkzIiwiQ0gwMTAwMDAwMDAwMDkyIiwiQ0gwMTAwMDAwMDAwMTA2IiwiQ0gwMTAwMDAwMDAwMTExIiwiQ0gwMTAwMDAwMDAwMTEyIiwiQ0gwMTAwMDAwMDAwMTE5IiwiQ0gwMTAwMDAwMDAwMzAyIiwiQ0gwMTAwMDAwMDAwMTQxIiwiQ0gwMTAwMDAwMDAwMjgxIiwiQ0gwMTAwMDAwMDAwMTM0IiwiQ0gwMTAwMDAwMDAwMTM2IiwiQ0gwMTAwMDAwMDAwMjgzIiwiQ0gwMTAwMDAwMDAwMjk4IiwiQ0gwMTAwMDAwMDAwMjEwIiwiQ0gwMTAwMDAwMDAwMjA4IiwiQ0gwMTAwMDAwMDAwMjI2IiwiQ0gwMTAwMDAwMDAwMjM4IiwiQ0gwMTAwMDAwMDAwMjczIiwiQ0gwMTAwMDAwMDAwMTM1IiwiQ0gwMTAwMDAwMDAwMjc2IiwiQ0gwMTAwMDAwMDAwMzEyIiwiQ0gwMTAwMDAwMDAwMzEzIiwiQ0gwMTAwMDAwMDAwMzE1IiwiQ0gwMTAwMDAwMDAwMzE2IiwiQ0gwMTAwMDAwMDAwMzE3IiwiQ0gwMTAwMDAwMDAwMzMwIiwiQ0gwMTAwMDAwMDAwMzMxIiwiQ0gwMTAwMDAwMDAwMzM0IiwiQ0gwMTAwMDAwMDAwMzM1IiwiQ0gwMTAwMDAwMDAwMzM2IiwiQ0gwMTAwMDAwMDAwMzM3Il0sInZyaW9DdXN0b21lcklkIjoiNTgwZWRlY2YtZWE3ZC00NjY2LWE0MjktNDBmZWNjYTcyYzViIiwibmFtZSI6IlBBQkxPIEFMRVhJIFNBWUVTIiwicmVhbG0iOiIvc3NsYSIsImNzbSI6IjIiLCJ0b2tlblR5cGUiOiJKV1RUb2tlbiJ9.zS_qbGew67LvcSdwcinYa7j_tHyKLC-Yr5A2rsbLdLOTWFJH-057vGh4PGmWx3Nl3KX1G039YQicwRc7KLAGtXJGIFmez9Tjj1aeiN4q7ypnn14k--fnlRtiuCYUkRL4fLgPtcS7-l9ZX1AqYvVWbfXiq6NZYuhPfH8UJrFryg4_6FntBgVQT1bKpFiTdeIuNSoVwwEbrGt_-ZCiRmR0U-ndPFX3fSCR2R7zy0QqS3B9LtI4uciseE_tlMCSIZ76VA9ILuSN445-JloW-KPCRF7EKUSK5BM_3p6q_hYasnl6kMC7wseiyQuxQelAkRHsC8_ICIPZBIK6CFb4Fuzwgg";
-    let chid = "CH0100000000036";
-    let keyId = "566d0a2b7ee9384c8fc5e3613db7fb7e";
-    let key = "5d90f742e6398b7ab0abb769c77b2638";
 
-    fetch("https://api.directvgo.com/entitlement/v3/playback/token/authorizer", {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/json",
-        "X-Client-Id": "web",
-        "X-Client-Version": "3.17.0"
-      },
-      body: JSON.stringify({
-        contentId: chid,
-        delay: 0,
-        isLive: true,
-        mobileNetwork: true
-      })
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.manifest && data.manifest.dash && data.manifest.dash.primary) {
-          let manifestUrl = data.manifest.dash.primary;
+const authorizationApiUrl = 'https://api.directvgo.com/entitlement/v3/playback/token/authorizer';
 
-          fetch(manifestUrl)
-            .then(response => {
-              if (!response.ok) {
-                throw new Error('HTTP error! status: ' + response.status);
+
+const token = "eyJ0eXAiOiJKV1QiLCJraWQiOiJ3VTNpZklJYUxPVUFSZVJCL0ZHNmVNMVAxUU09IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9oYXNoIjoiYkw1V1RLZk5MR3BLWUR4NGUyTlIwdyIsInN1YiI6ImRpZWdveGFicmFoYW1AZ21haWwuY29tIiwiYnVzaW5lc3NVbml0IjoiU1NMQS1EVEgiLCJyZWdpb25zIjpbImY5MTdjZmY2LTAyNWEtNDkxNy04NGQ2LWZiNjg2Njk3ZDkzYyIsIjVjM2MxMzUxLWVkMjgtNGNmYS04MDMxLTkxYzhhMTQ5MTJhNSJdLCJhdWRpdFRyYWNraW5nSWQiOiI1ZTIyMjI4NS1mNzYxLTRkNDgtYTYzNy01MzI1NmFmOTMzMjAtNjM0ODE0MDAiLCJpc28yQ29kZSI6IkNMIiwiaXNzIjoiaHR0cHM6Ly9wcm9kcm9jay5kaXJlY3R2Z28uY29tOjQ0My9vcGVuYW0vb2F1dGgyL3JlYWxtcy9yb290L3JlYWxtcy9zc2xhIiwidG9rZW5OYW1lIjoiaWRfdG9rZW4iLCJkZXZpY2VJZCI6IlBJMWVnbWRUR0xXaU9HbzBxajJXazk1WkRCU2FnQXpZSHJ3bUlqTzVFenciLCJjdXN0b21lclN0YXR1cyI6IkFjdGl2ZSIsImF6cCI6ImR0dmdvIiwiZmFtaWx5TmFtZSI6IkFSRVZBTE8gUVVJUk9aIiwiYXV0aF90aW1lIjoxNzAyMTM0MjE4LCJjdXN0b21lcklkIjoiMTI2Nzc3ODMxIiwiZXhwIjoxNzAyMjk5ODIxLCJpYXQiOjE3MDIxMzQyMjEsImN1c3RvbWVyU3RhdHVzTWVzc2FnZSI6IjEwMDUiLCJpYnNBY2NvdW50U3RhdHVzIjoiT04iLCJnaXZlbk5hbWUiOiJKQUNRVUVMSU5FIElWT05ORSIsInNlcnZpY2VQcm92aWRlckFjY291bnRJZCI6Ijc5NWQzODkxLTQ2ZTUtNDQwNC04ZTA1LTk1MWExNDY3ZWM0ZCIsInZyaW9EZXZpY2VJZCI6IjFlOGM3YzczLTYyYWYtNDNiZS1iNWFlLTkzNTU0OGYxMmQ1ZCIsImF1ZCI6ImR0dmdvIiwiQ0IxIjpmYWxzZSwiY2hhbm5lbHMiOlsiQ0gwMTAwMDAwMDAwMTY3IiwiQ0gwMTAwMDAwMDAwMjAyIiwiQ0gwMTAwMDAwMDAwMDI2IiwiQ0gwMTAwMDAwMDAwMjE2IiwiQ0gwMTAwMDAwMDAwMjA5IiwiQ0gwMTAwMDAwMDAwMDc1IiwiQ0gwMTAwMDAwMDAwMjk1IiwiQ0gwMTAwMDAwMDAwMjkzIiwiQ0gwMTAwMDAwMDAwMDE4IiwiQ0gwMTAwMDAwMDAwMDIwIiwiQ0gwMTAwMDAwMDAwMDE1IiwiQ0gwMTAwMDAwMDAwMTQyIiwiQ0gwMTAwMDAwMDAwMDQ2IiwiQ0gwMTAwMDAwMDAwMDkwIiwiQ0gwMTAwMDAwMDAwMjg2IiwiQ0gwMTAwMDAwMDAwMjMwIiwiQ0gwMTAwMDAwMDAwMjkyIiwiQ0gwMTAwMDAwMDAwMTM5IiwiQ0gwMTAwMDAwMDAwMDYxIiwiQ0gwMTAwMDAwMDAwMDc0IiwiQ0gwMTAwMDAwMDAwMTU5IiwiQ0gwMTAwMDAwMDAwMTYwIiwiQ0gwMTAwMDAwMDAwMTY0IiwiQ0gwMTAwMDAwMDAwMTEwIiwiQ0gwMTAwMDAwMDAwMTgxIiwiQ0gwMTAwMDAwMDAwMjE4IiwiQ0gwMTAwMDAwMDAwMjA2IiwiQ0gwMTAwMDAwMDAwMTc0IiwiQ0gwMTAwMDAwMDAwMTc5IiwiQ0gwMTAwMDAwMDAwMDgwIiwiQ0gwMTAwMDAwMDAwMDY0IiwiQ0gwMTAwMDAwMDAwMTAxIiwiQ0gwMTAwMDAwMDAwMTAzIiwiQ0gwMTAwMDAwMDAwMTQ4IiwiQ0gwMTAwMDAwMDAwMTg1IiwiQ0gwMTAwMDAwMDAwMjE1IiwiQ0gwMTAwMDAwMDAwMjIzIiwiQ0gwMTAwMDAwMDAwMjQ3IiwiQ0gwMTAwMDAwMDAwMjUwIiwiQ0gwMTAwMDAwMDAwMjU5IiwiQ0gwMTAwMDAwMDAwMDQyIiwiQ0gwMTAwMDAwMDAwMTAwIiwiQ0gwMTAwMDAwMDAwMTI4IiwiQ0gwMTAwMDAwMDAwMDM3IiwiQ0gwMTAwMDAwMDAwMTI0IiwiQ0gwMTAwMDAwMDAwMjM2IiwiQ0gwMTAwMDAwMDAwMjQ4IiwiQ0gwMTAwMDAwMDAwMDkxIiwiQ0gwMTAwMDAwMDAwMTQ2IiwiQ0gwMTAwMDAwMDAwMDMxIiwiQ0gwMTAwMDAwMDAwMDM0IiwiQ0gwMTAwMDAwMDAwMDk4IiwiQ0gwMTAwMDAwMDAwMjA3IiwiQ0gwMTAwMDAwMDAwMDQ0IiwiQ0gwMTAwMDAwMDAwMDQxIiwiQ0gwMTAwMDAwMDAwMDQzIiwiQ0gwMTAwMDAwMDAwMDUyIiwiQ0gwMTAwMDAwMDAwMDYwIiwiQ0gwMTAwMDAwMDAwMTg0IiwiQ0gwMTAwMDAwMDAwMDYyIiwiQ0gwMTAwMDAwMDAwMDkyIiwiQ0gwMTAwMDAwMDAwMTA2IiwiQ0gwMTAwMDAwMDAwMTExIiwiQ0gwMTAwMDAwMDAwMzAyIiwiQ0gwMTAwMDAwMDAwMTQxIiwiQ0gwMTAwMDAwMDAwMjgxIiwiQ0gwMTAwMDAwMDAwMTMyIiwiQ0gwMTAwMDAwMDAwMjA4IiwiQ0gwMTAwMDAwMDAwMjI2IiwiQ0gwMTAwMDAwMDAwMzE1IiwiQ0gwMTAwMDAwMDAwMzE3IiwiQ0gwMTAwMDAwMDAwMzMxIiwiQ0gwMTAwMDAwMDAwMzM0IiwiQ0gwMTAwMDAwMDAwMzM3IiwiQ0gwMTAwMDAwMDAwMzQyIiwiQ0gwMTAwMDAwMDAwMzQwIiwiQ0gwMTAwMDAwMDAwMzQxIiwiQ0gwMTAwMDAwMDAwMzQzIl0sInZyaW9DdXN0b21lcklkIjoiNzk1ZDM4OTEtNDZlNS00NDA0LThlMDUtOTUxYTE0NjdlYzRkIiwibmFtZSI6IkpBQ1FVRUxJTkUgSVZPTk5FIEFSRVZBTE8gUVVJUk9aIiwicmVhbG0iOiIvc3NsYSIsImNzbSI6IjIiLCJ0b2tlblR5cGUiOiJKV1RUb2tlbiJ9.MlQdcA6IeqogluMv03ekhvMMA51nilaA-iDGCC0NaGJpVMI3Qx82BEdugFNV6mf8d-h46pI0Mo_XToUuYF9UYGpv2IvLo820F0pBGUV1tLO5R5fpxm11Rpu810rUpW6g7hDeJn4wNETkQv0vcASm2ettNpzfgUAcR4zk-zvCJ5XS-Ph9lUzMT2Ij4yZ-ChwU2cIFGPcmLpJS95yWgF-F1HjzBTZAelYQgmDExQF-dj1gbXllnTzva84MpzfvG1_LQ7dLBUUc94usOQUHSMWo0f1nvvw-th76eRVJldmal1QKl_6jZ1xvg9laIE34nBCr2WOtSHanOfWyNIggevHmgQ";
+const chid = "CH0100000000162";
+const keyId = "6fb095d66807314cabbde0385b2953e4";
+const key = "eb790b9685c1d3f9680cc9f907a502ea";
+
+
+const authorizationRequestOptions = {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer ' + token,
+    'Content-Type': 'application/json',
+    'X-Client-Id': 'web',
+    'X-Client-Version': '3.17.0',
+  },
+  body: JSON.stringify({
+    contentId: chid,
+    delay: 0,
+    isLive: true,
+    mobileNetwork: true,
+  }),
+};
+
+
+fetch(authorizationApiUrl, authorizationRequestOptions)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Error de HTTP! Estado: ' + response.status);
+    }
+    return response.json();
+  })
+  .then(authorizationData => {
+    if (authorizationData.manifest && authorizationData.manifest.dash && authorizationData.manifest.dash.primary) {
+      const manifestUrl = authorizationData.manifest.dash.primary;
+
+      
+      const player = jwplayer("player");
+      player.setup({
+        playlist: [{
+          title: "Título del Video",
+          description: "Descripción del Video",
+          sources: [{
+            default: false,
+            type: "dash",
+            file: manifestUrl,
+            drm: {
+              clearkey: {
+                keyId: keyId,
+                key: key,
+              },
+            },
+            label: "0",
+            onXhrOpen: function (xhr, url) {
+              if (!url.includes("manifest.mpd")) {
+                xhr.setRequestHeader("Hdntl", authorizationData.headers.get('hdntl'));
               }
-              const hdntl = response.headers.get('hdntl');
-              if (hdntl) {
-                console.log('hdntl:', hdntl);
+            },
+          }],
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: false,
+        cast: {},
+        sharing: {},
+      });
+    } else {
+      console.error("URL principal de Dash no encontrada en la respuesta.");
+    }
+  })
+  .catch(error => console.error('Error al obtener el token de autorización:', error));
 
-                let player = jwplayer("player");
-                player.setup({
-                  playlist: [{
-                    title: "Mega Deportes TV | Reproductor",
-                    description: "megadeportestv2.com",
-                    sources: [{
-                      default: false,
-                      type: "dash",
-                      file: manifestUrl,
-                      drm: {
-                        clearkey: {
-                          keyId: keyId,
-                          key: key
-                        }
-                      },
-                      label: "0",
-                      onXhrOpen: function (xhr, url) {
-                        if (!url.includes("manifest.mpd")) {
-                          xhr.setRequestHeader("Hdntl", hdntl);
-                        }
-                      }
-                    }]
-                  }],
-                  width: "100%",
-                  height: "100%",
-                  aspectratio: "16:9",
-                  autostart: false,
-                  cast: {},
-                  sharing: {}
-                });
-              } else {
-                console.log('Header "hdntl" not found in the response.');
-              }
-              return response.text();
-            })
-            .catch(error => console.error('Error fetching MPD:', error));
-
-        } else {
-          console.error("Dash primary URL not found in the response.");
-        }
-      })
-      .catch(error => console.error("Error fetching authorization token:", error));
   </script></body></html>

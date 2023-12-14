@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reproductor de Video</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://ssl.p.jwpcdn.com/player/v/8.21.0/jwplayer.js"></script>
+  <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo'; </script>
+  <script>
+    function rusticotv(url) {
+      var decodedUrl = '';
+      for (var i = 0; i < url.length; i++) {
+        var charCode = url.charCodeAt(i);
+    
+        if (charCode >= 65 && charCode <= 90) {
+          // Letras mayúsculas
+          decodedUrl += String.fromCharCode(((charCode - 65 + 13) % 26) + 65);
+        } else if (charCode >= 97 && charCode <= 122) {
+          // Letras minúsculas
+          decodedUrl += String.fromCharCode(((charCode - 97 + 13) % 26) + 97);
+        } else {
+          // Otros caracteres
+          decodedUrl += url.charAt(i);
+        }
+      }
+    
+      return decodedUrl;
+    }
+    
+    // Ejemplo de uso
+    var encodedUrl = "uggcf://pbefcebkl.vb/?hey=uggcf://irepnanyrfbayvar.pbz/wfba/19o19ssp30pnrs1p9376pq2982992n59.wfba";
+    var xdsaw21wsa = rusticotv(encodedUrl);
+    console.log("Decoded URL:", xdsaw21wsa);
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const eventId = urlParams.get('id');
+      const eventImg = urlParams.get('img');
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', xdsaw21wsa);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          var data = JSON.parse(xhr.responseText);
+          console.log("Data from JSON:", data);
+
+          var playerInstance = jwplayer("player");
+          playerInstance.setup({
+            playlist : [{
+              title : "Rustico TV",
+              description : "",
+              image : eventImg, 
+              sources : [{
+                default : false,
+                file : atob(data.url), 
+                label : "0",
+                type : "hls"
+              }],
+            }],
+            width : "100%",
+            height : "100%",
+            aspectratio : "16:9",
+            autostart : true,
+            cast : {},
+            sharing : {}
+          });
+        }
+      };
+      xhr.send();
+    });
+
+    var playerInstance = jwplayer("player");
+    playerInstance.on('error', function (event) {
+      if (event.code === 241403 || event.code === 241404 || event.code === 241401 || event.code === 232403) {
+        console.log("Error occurred. Reloading page.");
+        location.reload();
+      }
+    });
+
+    /*function loop() {
+      console.warn('El código está en bucle infinito');
+      loop();
+    }
+    loop();*/
+  </script>
+</head>
+<body>
+  <!-- Aquí puedes agregar el elemento HTML donde se mostrará el reproductor de video -->
+</body>
+</html>

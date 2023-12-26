@@ -853,7 +853,28 @@ playerInstance.setup({
 });
 
 
+var selectedLanguage = 1;
+var selectedLanguage2 = 0;
+var languageChangedDuringPlay = false;
 
+jwplayer().on('play', function(e) {
+  if (!languageChangedDuringPlay) {
+    var currentLanguage = jwplayer().getCurrentAudioTrack();
+
+    if (currentLanguage !== selectedLanguage) {
+      jwplayer().setCurrentAudioTrack(selectedLanguage);
+      languageChangedDuringPlay = true; 
+    } else if (currentLanguage !== selectedLanguage2) {
+      jwplayer().setCurrentAudioTrack(selectedLanguage2);
+      languageChangedDuringPlay = true; 
+    }
+  }
+});
+
+
+jwplayer().on('complete', function(e) {
+  languageChangedDuringPlay = false;
+});
 
 </script>
 

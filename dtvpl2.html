@@ -807,11 +807,6 @@ else if (id == 1071 || id == 1259 || id == 1279 )
         url = 'https://'+id+'-abc-da-bpk.dtvott.com/dash_live_'+id;
 }
 
-
-	else if (id ==  1281)
-{
-        url = 'https://1279-abc-da-bpk.dtvott.com/dash_live_'+id;
-}
 else if (id == 1251 || id == 1040 || id == 1035)
 {
         url = 'https://dtvott-akaws.akamaized.net/live_'+id+'/DASH';
@@ -869,28 +864,7 @@ playerInstance.setup({
 });
 
 
-var selectedLanguage = 1;
-var selectedLanguage2 = 0;
-var languageChangedDuringPlay = false;
 
-jwplayer().on('play', function(e) {
-  if (!languageChangedDuringPlay) {
-    var currentLanguage = jwplayer().getCurrentAudioTrack();
-
-    if (currentLanguage !== selectedLanguage) {
-      jwplayer().setCurrentAudioTrack(selectedLanguage);
-      languageChangedDuringPlay = true; 
-    } else if (currentLanguage !== selectedLanguage2) {
-      jwplayer().setCurrentAudioTrack(selectedLanguage2);
-      languageChangedDuringPlay = true; 
-    }
-  }
-});
-
-
-jwplayer().on('complete', function(e) {
-  languageChangedDuringPlay = false;
-});
 
 </script>
 

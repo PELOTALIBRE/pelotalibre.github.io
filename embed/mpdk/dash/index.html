@@ -17,7 +17,9 @@ var key = getParameterByName('key');
 var key2 = getParameterByName('key2');
 var getIMG = getParameterByName('img');
 </script>
+
 <div id="player"></div>
+
 <script type="text/javascript">
 var playerInstance = jwplayer("player");
 
@@ -28,7 +30,7 @@ playerInstance.setup({
 			{
 				"default": false,
 				"type": "dash",
-				  file: "https://becken901.onrender.com/https://dce-de-livedazn.daznedge.net/dash/dazn-linear-" + getID + "/stream.mpd"
+				file: "https://becken901.onrender.com/https://dce-de-livedazn.daznedge.net/dash/dazn-linear-" + getID + "/stream.mpd",
 				"drm": {
 					"clearkey": { "keyId": atob(key), "key": atob(key2) }
 				},
@@ -44,3 +46,4 @@ playerInstance.setup({
 	sharing: {}
 });
 </script>
+

@@ -23,20 +23,11 @@ var t="203c73637269707420747970653d27746578742f6a617661736372697074273e0d0a20202
 </script>
 <script type="text/javascript">
 
-// Función para obtener parámetros de la URL
-function getParameterByName(name) {
-  name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
-  var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
-  results = regex.exec(location.search);
-  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-
-
 // Obtener el valor de lang de la URL
 var getLang = getParameterByName('lang');
 
-// Convertir el valor de getLang a un número y establecer en 0 si no es un número válido
-getLang = isNaN(parseInt(getLang, 10)) ? 0 : parseInt(getLang, 10);
+// Convertir el valor de getLang a un número
+getLang = parseInt(getLang, 10);
 
 // Verificar si el valor de id es "#" y mostrar una alerta
 var id = getParameterByName('id');
@@ -46,8 +37,12 @@ if (id === "#") {
 
 // Configurar el reproductor de video
 jwplayer().on('play', function(e) {
-  jwplayer().setCurrentAudioTrack(getLang);
+  // Verificar si getLang es un número válido antes de establecer el audio track
+  if (!isNaN(getLang)) {
+    jwplayer().setCurrentAudioTrack(getLang);
+  }
 });
+
 
 
 </script>

@@ -32,20 +32,23 @@ function getParameterByName(name) {
 }
 
 
-getLang = parseInt(getLang, 10);
+// Obtener el valor de lang de la URL
+var getLang = getParameterByName('lang');
 
-if (isNaN(getLang)) {
- var getLang = getParameterByName('lang');
-}
+// Convertir el valor de getLang a un número y establecer en 0 si no es un número válido
+getLang = isNaN(parseInt(getLang, 10)) ? 0 : parseInt(getLang, 10);
 
+// Verificar si el valor de id es "#" y mostrar una alerta
 var id = getParameterByName('id');
 if (id === "#") {
   alert('Vuelve a la página anterior');
 }
 
+// Configurar el reproductor de video
 jwplayer().on('play', function(e) {
   jwplayer().setCurrentAudioTrack(getLang);
 });
+
 
 </script>
 <div id="player"></div>

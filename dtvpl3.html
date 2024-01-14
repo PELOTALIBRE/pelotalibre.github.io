@@ -23,37 +23,33 @@ var t="203c73637269707420747970653d27746578742f6a617661736372697074273e0d0a20202
 </script>
 <script type="text/javascript">
 
-function getParameterByName(name) {
-	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
-	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
-	results = regex.exec(location.search);
-	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-
-var id = getParameterByName('id');
-if (id == "#") {alert('Vuelve a la pÃ¡gina anterior');}
-
-
-	
 // Obtener el valor de lang de la URL
 var getLang = getParameterByName('lang');
 
-// Convertir el valor de getLang a un número
-getLang = parseInt(getLang, 10);
-
-// Verificar si el valor de id es "#" y mostrar una alerta
-var id = getParameterByName('id');
-if (id === "#") {
-  alert('Vuelve a la página anterior');
+// Verificar si el valor de lang es nulo o indefinido
+if (getLang === null || getLang === undefined || getLang === "") {
+    // Establecer el valor predeterminado en 1
+    getLang = 1;
+} else {
+    // Convertir el valor a un número (si es una cadena) para asegurarse de que sea un número
+    getLang = parseInt(getLang, 10);
 }
 
-// Configurar el reproductor de video
 jwplayer().on('play', function(e) {
-  // Verificar si getLang es un número válido antes de establecer el audio track
-  if (!isNaN(getLang)) {
     jwplayer().setCurrentAudioTrack(getLang);
-  }
 });
+
+// Función para obtener el valor de un parámetro de la URL por su nombre
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 
 
 

@@ -23,24 +23,7 @@ var t="203c73637269707420747970653d27746578742f6a617661736372697074273e0d0a20202
 </script>
 <script type="text/javascript">
 
-
-// Obtener el valor de lang de la URL
 var getLang = getParameterByName('lang');
-
-// Verificar si el valor de lang es nulo o indefinido
-if (getLang === null || getLang === undefined || getLang === "") {
-    // Establecer el valor predeterminado en 1
-    getLang = 1;
-} else {
-    // Convertir el valor a un número (si es una cadena) para asegurarse de que sea un número
-    getLang = parseInt(getLang, 10);
-}
-
-jwplayer().on('play', function(e) {
-    jwplayer().setCurrentAudioTrack(getLang);
-});
-
-// Función para obtener el valor de un parámetro de la URL por su nombre
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -51,6 +34,14 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+if (getLang == "") {
+	getLang = 1;
+}
+else if (getLang == "") {
+	getLang = 0;
+}
+
+	
 var id = getParameterByName('id');
 if (id == "#") {alert('Vuelve a la pÃ¡gina anterior');}
 

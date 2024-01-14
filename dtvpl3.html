@@ -34,10 +34,10 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-if (getLang == "") {
+if (getLang == "1") {
 	getLang = 1;
 }
-else if (getLang == "") {
+else if (getLang == "0") {
 	getLang = 0;
 }
 

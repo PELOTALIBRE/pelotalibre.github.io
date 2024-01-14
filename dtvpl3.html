@@ -31,24 +31,19 @@ function getParameterByName(name) {
   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-// Inicializar variable global getLang
 var getLang = getParameterByName('lang');
 
-// Convertir el valor de getLang a un número
 getLang = parseInt(getLang, 10);
 
-// Verificar si getLang es un número válido, de lo contrario, establecerlo en 0
 if (isNaN(getLang)) {
-  getLang = 0;
+  getLang
 }
 
-// Verificar si el valor de id es "#" y mostrar una alerta
 var id = getParameterByName('id');
 if (id === "#") {
   alert('Vuelve a la página anterior');
 }
 
-// Configurar el reproductor de video
 jwplayer().on('play', function(e) {
   jwplayer().setCurrentAudioTrack(getLang);
 });

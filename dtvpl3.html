@@ -23,6 +23,18 @@ var t="203c73637269707420747970653d27746578742f6a617661736372697074273e0d0a20202
 </script>
 <script type="text/javascript">
 
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var id = getParameterByName('id');
+if (id == "#") {alert('Vuelve a la pÃ¡gina anterior');}
+
+
+	
 // Obtener el valor de lang de la URL
 var getLang = getParameterByName('lang');
 

@@ -41,6 +41,9 @@ else if (getLang == "0") {
 	getLang = 0;
 }
 
+jwplayer().on('play', function(e) {
+  jwplayer().setCurrentAudioTrack(getLang);
+});
 	
 var id = getParameterByName('id');
 if (id == "#") {alert('Vuelve a la pÃ¡gina anterior');}

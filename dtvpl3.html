@@ -31,12 +31,11 @@ function getParameterByName(name) {
   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-var getLang = getParameterByName('lang');
 
 getLang = parseInt(getLang, 10);
 
 if (isNaN(getLang)) {
-  getLang
+ var getLang = getParameterByName('lang');
 }
 
 var id = getParameterByName('id');

@@ -23,6 +23,7 @@ var t="203c73637269707420747970653d27746578742f6a617661736372697074273e0d0a20202
 </script>
 <script type="text/javascript">
 
+
 // Obtener el valor de lang de la URL
 var getLang = getParameterByName('lang');
 
@@ -50,8 +51,8 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-
-
+var id = getParameterByName('id');
+if (id == "#") {alert('Vuelve a la pÃ¡gina anterior');}
 
 </script>
 <div id="player"></div>

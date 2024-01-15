@@ -32,6 +32,13 @@ function getParameterByName(name) {
 var id = getParameterByName('id');
 if (id == "#") {alert('Vuelve a la p�gina anterior');}
 var getLang = getParameterByName('lang');
+
+jwplayer().on('play', function(e) {
+  if (getLang !== null) {
+    jwplayer().setCurrentAudioTrack(parseInt(getLang));
+  }
+});
+
 </script>
 <div id="player"></div>
 <script>

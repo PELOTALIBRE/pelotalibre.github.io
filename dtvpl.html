@@ -1013,7 +1013,7 @@ playerInstance.setup({
 
 });
 var getLang = getParameterByName('lang');
-var selectedLanguage: getLang;
+var selectedLanguage = getLang;
 var selectedLanguage2 = 1;  // Asigna un valor predeterminado o el valor que desees.
 var languageChangedDuringPlay = false;
 
@@ -1031,5 +1031,6 @@ jwplayer().on('play', function(e) {
 jwplayer().on('complete', function(e) {
   languageChangedDuringPlay = false;
 });
+
 
 </script>

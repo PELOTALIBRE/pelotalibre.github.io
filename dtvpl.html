@@ -1013,22 +1013,23 @@ playerInstance.setup({
 
 });
 
-function setAudioTrack() {
-    var getLang = getParameterByName('lang');
-    var langNumber = parseInt(getLang);
+var selectedLanguage = getParameterByName('lang');
+var selectedLanguage2 = 0;  // Asigna un valor predeterminado o el valor que desees.
+var languageChangedDuringPlay = false;
 
-    if (!isNaN(langNumber)) {
-        jwplayer().setCurrentAudioTrack(langNumber);
+jwplayer().on('play', function(e) {
+  if (!languageChangedDuringPlay) {
+    var currentLanguage = jwplayer().getCurrentAudioTrack();
+
+    if (currentLanguage !== selectedLanguage && currentLanguage !== selectedLanguage2) {
+      jwplayer().setCurrentAudioTrack(selectedLanguage);
+      languageChangedDuringPlay = true;
     }
-}
-
-// Configurar la pista de audio al cargar el reproductor
-jwplayer().on('ready', function () {
-    setAudioTrack();
+  }
 });
 
-// Configurar la pista de audio al cambiar el contenido del reproductor
-jwplayer().on('playlistItem', function () {
-    setAudioTrack();
+jwplayer().on('complete', function(e) {
+  languageChangedDuringPlay = false;
 });
+
 </script>

@@ -32,7 +32,7 @@ function getParameterByName(name) {
 var id = getParameterByName('id');
 if (id == "#") {alert('Vuelve a la p�gina anterior');}
 var getLang = getParameterByName('lang');
-
+var langNumber = parseInt(getLang);
 
 
 </script>
@@ -1015,9 +1015,9 @@ playerInstance.setup({
 
 });
 
-jwplayer().on('play', function(e) {
-  if (getLang !== null) {
-    jwplayer().setCurrentAudioTrack(parseInt(getLang));
-  }
-});
+if (!isNaN(langNumber)) {
+  jwplayer().on('play', function(e) {
+    jwplayer().setCurrentAudioTrack(langNumber);
+  });
+}
 </script>

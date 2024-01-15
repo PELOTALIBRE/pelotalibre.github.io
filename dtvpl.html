@@ -31,8 +31,6 @@ function getParameterByName(name) {
 
 var id = getParameterByName('id');
 if (id == "#") {alert('Vuelve a la p�gina anterior');}
-var getLang = getParameterByName('lang');
-var langNumber = parseInt(getLang);
 
 
 </script>
@@ -1015,9 +1013,22 @@ playerInstance.setup({
 
 });
 
-if (!isNaN(langNumber)) {
-  jwplayer().on('play', function(e) {
-    jwplayer().setCurrentAudioTrack(langNumber);
-  });
+function setAudioTrack() {
+    var getLang = getParameterByName('lang');
+    var langNumber = parseInt(getLang);
+
+    if (!isNaN(langNumber)) {
+        jwplayer().setCurrentAudioTrack(langNumber);
+    }
 }
+
+// Configurar la pista de audio al cargar el reproductor
+jwplayer().on('ready', function () {
+    setAudioTrack();
+});
+
+// Configurar la pista de audio al cambiar el contenido del reproductor
+jwplayer().on('playlistItem', function () {
+    setAudioTrack();
+});
 </script>
